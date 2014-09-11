@@ -1,8 +1,4 @@
 Template.test.rendered = () ->
-
-	
-
-	
 	Reveal.initialize
 		loop: false
 		controls: false
