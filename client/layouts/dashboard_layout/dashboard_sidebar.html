@@ -1,0 +1,55 @@
+<template name="dashboardSidebar">
+	<aside class="left-side sidebar-offcanvas">
+		<!-- sidebar: style can be found in sidebar.less -->
+		<section class="sidebar">		
+			<!-- search form -->
+			<!-- <form class="sidebar-form">
+				<div class="input-group">
+					<input type="text" id="search" name="q" class="form-control" placeholder="Search..."/>
+					<span class="input-group-btn">
+						<button type='submit' name='seach' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
+					</span>
+				</div>
+			</form> -->
+			<!-- /.search form -->
+			<!-- sidebar menu: : style can be found in sidebar.less -->
+			<ul class="sidebar-menu">
+				<li>
+					<a href="{{pathFor 'dashboard' username=username}}">
+						<i class="fa fa-dashboard"></i> <span>Dashboard</span>
+					</a>
+				</li>
+				{{#each Learning}}
+					<li>
+						<a href="{{pathFor 'language' username=username language=string}}">
+							<span>{{name}}</span>
+						</a>
+					</li>
+					<li class="all">
+						<a href="{{pathFor 'words' username=username language=string}}">
+							<i class="fa fa-angle-double-right"></i> All
+						</a>
+					</li>
+					{{#each getSets string}}
+					<li class="set">
+						<a href="{{pathFor 'set' username=username language=language set=name}}">
+							<i class="fa fa-angle-double-right"></i> {{name}}
+						</a>
+					</li>
+					{{/each}}
+				{{/each}}
+				<!-- <li class="treeview">
+					<a href="#">
+						<i class="fa fa-{{this.icon}}"></i>
+						<span>{{this.label}}</span>
+						<i class="fa fa-angle-left pull-right"></i>
+					</a>
+					<ul class="treeview-menu">
+						<li><a href="#"><i class="fa fa-angle-double-right"></i> New</a></li>
+						<li><a href="#"><i class="fa fa-angle-double-right"></i> View All</a></li>
+					</ul>
+				</li> -->
+			</ul>
+		</section>
+	</aside>
+</template>
