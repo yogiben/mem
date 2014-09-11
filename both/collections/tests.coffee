@@ -1,6 +1,6 @@
 Schemas = {}
 
-Tests = new Meteor.Collection('tests');
+@Tests = new Meteor.Collection('tests');
 
 Schemas.TestHistory = new SimpleSchema
 	word:
@@ -48,8 +48,3 @@ Schemas.Tests = new SimpleSchema
 					value: user._id
 
 Tests.attachSchema(Schemas.Tests)
-
-if Meteor.isClient
-	window.Tests = Tests
-else if Meteor.isServer
-	global.Tests = Tests

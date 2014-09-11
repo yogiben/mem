@@ -1,6 +1,6 @@
 Schemas = {}
 
-Sets = new Meteor.Collection('sets');
+@Sets = new Meteor.Collection('sets');
 
 Schemas.Sets = new SimpleSchema
 	name:
@@ -71,8 +71,3 @@ Schemas.Sets = new SimpleSchema
 			false
 
 Sets.attachSchema(Schemas.Sets)
-
-if Meteor.isClient
-	window.Sets = Sets
-else if Meteor.isServer
-	global.Sets = Sets

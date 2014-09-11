@@ -1,4 +1,4 @@
-Deps.autorun ->
+Tracker.autorun ->
 	Meteor.subscribe 'user'
 	Meteor.subscribe 'words'
 	Meteor.subscribe 'sets'
@@ -68,13 +68,14 @@ Deps.autorun ->
 	Session.setDefault 'addType','quick'
 
 	if Session.get 'Words'
-		if Session.get('Words').length > Config.testLength
-			Session.set 'Testing', Session.get('Words').splice(0,Config.testLength) 
-		else
-			Session.set 'Testing', Session.get('Words')
+		Session.set 'TestQueue', Session.get('Words')
+		# if Session.get('Words').length > Config.testLength
+		# 	Session.set 'TestQueue', Session.get('Words').splice(0,Config.testLength) 
+		# else
+		# 	Session.set 'TestQueue', Session.get('Words')
 
 	Session.setDefault 'test_index', 0
-	Session.set('CurrentTesting',Session.get('Testing')[Session.get('test_index')])
+	Session.set('CurrentTestQueue',Session.get('TestQueue')[Session.get('test_index')])
 
 	Session.setDefault 'prompt', 'target'
 	Session.setDefault 'multiple', false
@@ -85,11 +86,11 @@ Deps.autorun ->
 	if Session.get 'response'
 		Session.set 'correct', App.isCorrect Session.get('response'), Session.get('answer')
 
-	if Session.get 'CurrentTesting'
+	if Session.get 'CurrentTestQueue'
 		if Session.equals 'prompt', 'target'
-			Session.set 'answer', Session.get('CurrentTesting').source
+			Session.set 'answer', Session.get('CurrentTestQueue').source
 		else
-			Session.set 'answer', Session.get('CurrentTesting').target
+			Session.set 'answer', Session.get('CurrentTestQueue').target
 
 
 	#Accounts entry routing bug

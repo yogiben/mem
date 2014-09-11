@@ -26,7 +26,10 @@ Router.map ->
     path: "/test/"
     layoutTemplate: "testLayout"
     action: ->
-      # Session.set 'language', @params.language
+      if Session.get('TestQueue').length > Config.testLength
+        Session.set 'Testing', Session.get('TestQueue').splice(0,Config.testLength) 
+      else
+        Session.set 'Testing', Session.get('TestQueue')
       @render()
 
 

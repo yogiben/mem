@@ -1,6 +1,6 @@
 Schemas = {}
 
-Words = new Meteor.Collection('words')
+@Words = new Meteor.Collection('words')
 
 Schemas.WordsAttempts = new SimpleSchema
 	date:
@@ -91,8 +91,3 @@ Schemas.Words = new SimpleSchema
 					value: user._id
 
 Words.attachSchema(Schemas.Words)
-
-if Meteor.isClient
-	window.Words = Words
-else if Meteor.isServer
-	global.Words = Words

@@ -1,6 +1,6 @@
 Schemas = {}
 
-Mems = new Meteor.Collection('mems');
+@Mems = new Meteor.Collection('mems');
 
 Schemas.Mems = new SimpleSchema
 	word:
@@ -34,8 +34,3 @@ Schemas.Mems = new SimpleSchema
 					value: user._id
 
 Mems.attachSchema(Schemas.Mems)
-
-if Meteor.isClient
-	window.Mems = Mems
-else if Meteor.isServer
-	global.Mems = Mems

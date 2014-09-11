@@ -11,7 +11,8 @@
 							{{$.Session.get 'title'}}
 							<small>{{$.Session.get 'subtitle'}}</small>
 						</h1>
-                        {{> testButton class="btn btn-danger"}}
+                        <!-- {{> testButton class="btn btn-danger"}} -->
+                        <a href="{{pathFor 'test'}}" class="btn btn-danger test-button">Test</a>
 						<!-- <ol class="breadcrumb">
 							<li><a href="/admin/">Dashboard</a></li>
 							{{#if $.Session.get 'language'}}

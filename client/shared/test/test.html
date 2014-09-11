@@ -1,4 +1,4 @@
-<template name="testOld">
+<!-- <template name="testOld">
 	<div class="modal fade {{#if $.Session.get 'response'}}answered{{/if}} {{#if $.Session.equals 'correct' true}}correct{{/if}}" id="test-modal">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -17,7 +17,7 @@
 					{{/with}}
 				</div>
 				<div class="modal-footer">
-					<!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 					{{#if $.Session.get 'response'}}
 					<button type="button" class="btn btn-primary next">Next</button>
 					{{/if}}
@@ -25,47 +25,4 @@
 			</div>
 		</div>
 	</div>
-</template>
-
-<template name="testButton">
-	{{#if Testing}}
-	<a class="{{class}} test-button" data-toggle="modal" href='#test-modal'>Test</a>
-	{{/if}}
-</template>
-
-<template name="testPrompt">
-	<h1 class="question {{#if $.Session.equals 'correct' true}}text-success{{/if}}{{#if $.Session.equals 'correct' false}}text-danger{{/if}}">
-	{{#if $.Session.equals 'prompt' 'target'}}
-	{{target}}
-	{{else}}
-	{{source}}
-	{{/if}}
-	</h1>
-</template>
-
-<template name="testInput">
-	<div class="input-group">
-		<input type="text" name="source" id="test-input" class="form-control" placeholder="{{#if $.Session.equals 'prompt' 'target'}}Type the English{{else}}Type the TARGET LANGUAGE{{/if}}">
-		<span class="input-group-btn">
-			{{#if $.Session.get 'test_input'}}
-			<button class="btn btn-default" id="test-input-confirm" type="button">Go</button>
-			{{else}}
-			<button class="btn btn-default" id="test-input-skip" type="button">Skip</button>
-			{{/if}}
-		</span>
-    </div>
-</template>
-
-<template name="testMultipleChoice">
-	<p class="text-center">
-		{{#each $.Session.get 'Multiples'}}
-			<button class="btn btn-default test-multiple-answer" value="{{#if $.Session.equals 'prompt' 'target'}}{{source}}{{else}}{{target}}{{/if}}">
-			{{#if $.Session.equals 'prompt' 'target'}}
-			{{source}}
-			{{else}}
-			{{target}}
-			{{/if}}
-			</button>
-		{{/each}}
-	</p>
-</template>
+</template> -->
