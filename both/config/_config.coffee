@@ -1,7 +1,7 @@
 Config =
-	name: 'My App'
-	title: 'Make Meteor Apps. Fast.'
-	subtitle: 'Create beautiful and functioning Meteor apps really quick'
+	name: 'Mem Mem'
+	title: 'Manage your vocabulary'
+	subtitle: 'Organize and record your foreign language vocab'
 	logo: ->
 		'<b>' + @name + '</b>'
 	footer: ->
