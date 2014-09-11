@@ -74,7 +74,11 @@ Tracker.autorun ->
 		# else
 		# 	Session.set 'TestQueue', Session.get('Words')
 
+	if Session.get 'test_input'
+		Session.set 'response', Session.get('test_input')
+
 	Session.setDefault 'test_index', 0
+
 	Session.set('CurrentTestQueue',Session.get('TestQueue')[Session.get('test_index')])
 
 	Session.setDefault 'prompt', 'target'
@@ -83,8 +87,8 @@ Tracker.autorun ->
 	if Session.get 'multiple'
 		Session.set 'Multiples', App.getMultiples()
 
-	if Session.get 'response'
-		Session.set 'correct', App.isCorrect Session.get('response'), Session.get('answer')
+	# if Session.get 'response'
+	# 	Session.set 'correct', App.isCorrect Session.get('response'), Session.get('answer')
 
 	if Session.get 'CurrentTestQueue'
 		if Session.equals 'prompt', 'target'

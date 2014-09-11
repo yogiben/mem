@@ -42,6 +42,13 @@ App =
 		response = response.toLowerCase()
 		answer = answer.toLowerCase()
 		response == answer
+	next: ->
+		Session.set 'response', ''
+		Session.set 'text_input', ''
+		Session.set 'correct', ''
+		Session.set 'test_index', Session.get('test_index') + 1
+		Reveal.next()
+		$(Reveal.getCurrentSlide()).find('input').focus()
 
 if Meteor.isClient
 	window['App'] = App

@@ -6,8 +6,15 @@
 	            <section>Vertical Slide 1</section>
 	            <section>Vertical Slide 2</section>
 	        </section> -->
-			{{#each $.Session.get 'Testing'}}
+<!-- 			{{#each $.Session.get 'Testing'}}
+				{{#if $lt level 1}}
 				<section>
+					{{> testCard}}
+				</section>
+				{{/if}}
+			{{/each}} -->
+			{{#each $.Session.get 'Testing'}}
+				<section class="{{#if $.Session.equals 'correct' true}}correct{{/if}}{{#if $.Session.equals 'correct' false}}incorrect{{/if}}">
 					{{> testPrompt }}
 					{{#if $.Session.get 'multiple'}}
 					{{> testMultipleChoice}}
@@ -21,7 +28,11 @@
 </template>
 
 
-
+<template name="testCard">
+	<h1>{{source}}</h1>
+	<h2>{{transliteration}}</h2>
+	<h1>{{target}}</h1>
+</template>
 
 <template name="testButton">
 	{{#if Testing}}
@@ -40,14 +51,14 @@
 </template>
 
 <template name="testInput">
-	<div class="input-group">
-		<input type="text" name="source" id="test-input" class="form-control test-input" placeholder="{{#if $.Session.equals 'prompt' 'target'}}Type the English{{else}}Type the TARGET LANGUAGE{{/if}}">
-    </div>
-    {{#if $.Session.get 'test_input'}}
-		<button class="btn btn-default" id="test-input-confirm" type="button">Go</button>
-		{{else}}
-		<button class="btn btn-default" id="test-input-skip" type="button">Skip</button>
+	<input type="text" name="source" class="form-control test-input session-set" key="test_input" placeholder="{{#if $.Session.equals 'prompt' 'target'}}Type the English{{else}}Type the TARGET LANGUAGE{{/if}}">
+   <div class="test-buttons">
+   	{{#if $.Session.get 'test_input'}}
+   			<a class="test-input-confirm">Submit</a>
+   			{{else}}
+   			<a class="test-input-skip">Skip</a>
 	{{/if}}
+   	</div>
 </template>
 
 <template name="testMultipleChoice">

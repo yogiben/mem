@@ -5,3 +5,6 @@ Template.test.rendered = () ->
 		progress: true
 		autoSlide: 0
 
+Template.test.events
+	'change .test-input': (e,t) ->
+		#
