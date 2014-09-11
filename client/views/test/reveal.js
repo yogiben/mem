@@ -6,7 +6,6 @@
  * Copyright (C) 2014 Hakim El Hattab, http://hakim.se
  */
 
-console.log('revealing')
 
 var Reveal = (function(){
 
@@ -3383,8 +3382,5 @@ var Reveal = (function(){
 	};
 
 })();
-
-console.log('reveled')
-console.log(Reveal)
 
 window['Reveal'] = Reveal

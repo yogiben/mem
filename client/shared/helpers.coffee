@@ -77,3 +77,11 @@ UI.registerHelper 'allSets', ->
 
 UI.registerHelper 'currentTesting', ->
 	Session.get 'currentTesting'
+
+UI.registerHelper 'wordCount', (language,set) ->
+	if language and set
+		Words.find({$and : [{language:language},{sets: { $all : [ set ] }}]}).fetch().length
+	else if language
+		Words.find({language:language}).fetch().length
+	else
+		Words.find().fetch().length

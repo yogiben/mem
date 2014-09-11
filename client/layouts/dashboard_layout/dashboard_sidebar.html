@@ -22,18 +22,18 @@
 				{{#each Learning}}
 					<li>
 						<a href="{{pathFor 'language' username=username language=string}}">
-							<span>{{name}}</span>
+							{{name}}
 						</a>
 					</li>
 					<li class="all">
 						<a href="{{pathFor 'words' username=username language=string}}">
-							<i class="fa fa-angle-double-right"></i> All
+							<i class="fa fa-angle-double-right"></i> All <span class="pull-right">({{wordCount string false}})</span>
 						</a>
 					</li>
 					{{#each getSets string}}
 					<li class="set">
 						<a href="{{pathFor 'set' username=username language=language set=name}}">
-							<i class="fa fa-angle-double-right"></i> {{name}}
+							<i class="fa fa-angle-double-right"></i> {{name}} <span class="pull-right">({{wordCount ../string _id}})</span>
 						</a>
 					</li>
 					{{/each}}
