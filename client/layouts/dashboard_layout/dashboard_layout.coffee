@@ -3,6 +3,36 @@
 #   $(".treeview").tree()
 #   return
 
+Template.dashboardLayout.events
+	'click [href="#afModal"]': (e,t) ->
+		collection = $(e.currentTarget).attr('collection')
+		operation = $(e.currentTarget).attr('operation')
+		_id = $(e.currentTarget).attr('doc')
+		omitFields = $(e.currentTarget).attr('omitFields')
+		buttonClasses = $(e.currentTarget).attr('buttonClasses')
+		html = $(e.currentTarget).html()
+		title = html
+		buttonContent = html
+		
+		if $(e.currentTarget).attr('title')
+			title = $(e.currentTarget).attr('title')
+
+		if $(e.currentTarget).attr('buttonContent')
+			buttonContent = $(e.currentTarget).attr('buttonContent')
+
+		if _id
+			doc = window[collection].findOne _id:_id
+
+		Session.set('cmCollection',collection)
+		Session.set('cmOperation',operation)
+		Session.set('cmDoc',doc)
+		Session.set('cmButtonHtml',html)
+		Session.set('cmOmitFields',omitFields)
+		Session.set('cmTitle',title)
+		Session.set('cmButtonContent',buttonContent)
+		Session.set('cmButtonClasses',buttonClasses)
+
+
 Template.dashboardHeader.rendered = ->
   $("[data-toggle='offcanvas']").click (e) ->
     e.preventDefault()

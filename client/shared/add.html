@@ -50,7 +50,7 @@
 
 <template name="addSets">
 	<p>
-		<a href="#afModal" data-target="modal" class="btn btn-default btn-xs" collection="Sets" omitFields="createdAt,updatedAt,owner,public,starter,words,description" operation="insert" buttonContent="Create set" title="Add a new set"><i class="fa fa-plus"></i></a>
+		<a data-toggle="modal" href='#afModal' class="btn btn-default btn-xs" collection="Sets" omitFields="createdAt,updatedAt,owner,public,starter,words,description" operation="insert" buttonContent="Create set" title="Add a new set"><i class="fa fa-plus"></i></a>
 		{{#each Sets}}
 		<a value="{{_id}}" set="{{_id}}" class="addSet btn {{#if _.contains addSets _id}}btn-primary active{{else}}btn-default{{/if}} btn-xs">{{name}}</a>
 		{{/each}}
