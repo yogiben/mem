@@ -79,7 +79,8 @@ Tracker.autorun ->
 
 	Session.setDefault 'test_index', 0
 
-	Session.set('CurrentTestQueue',Session.get('TestQueue')[Session.get('test_index')])
+	if Session.get('Testing')
+		Session.set('CurrentTestItem',Session.get('Testing')[Session.get('test_index')])
 
 	Session.setDefault 'prompt', 'target'
 	Session.setDefault 'multiple', false
@@ -90,11 +91,11 @@ Tracker.autorun ->
 	# if Session.get 'response'
 	# 	Session.set 'correct', App.isCorrect Session.get('response'), Session.get('answer')
 
-	if Session.get 'CurrentTestQueue'
+	if Session.get 'CurrentTestItem'
 		if Session.equals 'prompt', 'target'
-			Session.set 'answer', Session.get('CurrentTestQueue').source
+			Session.set 'answer', Session.get('CurrentTestItem').source
 		else
-			Session.set 'answer', Session.get('CurrentTestQueue').target
+			Session.set 'answer', Session.get('CurrentTestItem').target
 
 
 	#Accounts entry routing bug

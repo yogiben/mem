@@ -26,16 +26,16 @@ App =
 			Session.set 'response', null
 	getMultiples: ->
 		Multiples = []
-		Multiples.push Session.get('CurrentTesting')
+		Multiples.push Session.get('CurrentTestItem')
 		if Session.get('Words').length >= 5
 			i = 0
 			while i < 5
-			  Multiples.push Words.find( {_id: { $not: Session.get('CurrentTesting')._id}} ).fetch()[i]
+			  Multiples.push Words.find( {_id: { $not: Session.get('CurrentTestItem')._id}} ).fetch()[i]
 			  i++
 		else
 			i = 0
 			while i < 5
-			  Multiples.push Words.find({_id: { $not: Session.get('CurrentTesting')._id}}).fetch()[i]
+			  Multiples.push Words.find({_id: { $not: Session.get('CurrentTestItem')._id}}).fetch()[i]
 			  i++
 		Multiples
 	isCorrect: (response,answer)->
@@ -44,11 +44,15 @@ App =
 		response == answer
 	next: ->
 		Session.set 'response', ''
-		Session.set 'text_input', ''
+		Session.set 'test_input', ''
 		Session.set 'correct', ''
+		Session.set 'multiple', false
 		Session.set 'test_index', Session.get('test_index') + 1
 		Reveal.next()
 		$(Reveal.getCurrentSlide()).find('input').focus()
+	multiple: ->
+		Session.set 'multiple', true
+		Session.set 'Multiples', @getMultiples()
 
 if Meteor.isClient
 	window['App'] = App

@@ -13,4 +13,13 @@ Template.testLayout.events
 			setTimeout (->
 				  App.next()
 				), 100
-
+	'click .test-input-skip': (e,t)->
+		App.multiple()
+	'click .test-multiple-answer': (e,t)->
+		value =  $(e.currentTarget).val()
+		if App.isCorrect value, Session.get('answer')
+			Session.set('correct',true)
+			console.log 'MULTIPLE CHOICE CORRECT'
+			App.next()
+		else
+			Session.set('correct',false)
