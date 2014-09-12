@@ -33,7 +33,30 @@
 				</section>
 			{{/each}}
 			<section>
-				<h1>End of test</h1>
+				<h3>End of test</h3>
+				<table>
+						<!-- <thead>
+							<tr>
+								<th>Item</th>
+								<th>Value</th>
+								<th>Quantity</th>
+							</tr>
+						</thead> -->
+						<tbody>
+						{{#each $.Session.get 'Testing'}}
+							<tr>
+								<td>{{target}}</td>
+								<td>{{transliteration}}</td>
+								<td>{{source}}</td>
+							</tr>
+						{{/each}}
+						</tbody>
+					</table>
+<!-- 				{{#each $.Session.get 'Testing'}}
+				<div class="col-md-3">
+					{{> testPrompt }}
+				</div>
+				{{/each}} -->
 				<p><a href="{{pathFor 'dashboard' username=username}}" class="btn btn-lg btn-primary">Go home</a></p>
 			</section>			
 	    </div>
