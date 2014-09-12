@@ -13,6 +13,16 @@ Template.testLayout.events
 			setTimeout (->
 				  App.next()
 				), 100
+	'keydown': (e,t)->
+		if e.which == 13
+			if Reveal.getIndices().v == 0
+				App.multiple()
+			else if Reveal.getIndices().v == 1
+				App.incorrect()
+			else if Reveal.getIndices().v == 2
+				App.next()
+
+
 	'click .test-input-skip': (e,t)->
 		App.multiple()
 	'click .test-multiple-answer': (e,t)->
@@ -24,15 +34,16 @@ Template.testLayout.events
 				  App.next()
 				), 100
 		else
-			Session.set('correct',false)
-			console.log 'DUMBASS!!'
-			Session.set 'correct', false
 			setTimeout (->
-				  Reveal.down()
-				  console.log 'moving to card'
+				  App.incorrect()
 				), 100
 	'click .accept-incorrect': (e,t)->
 		App.next()
+
+Template.testLayout.rendered = () ->
+	setTimeout (->
+		$(Reveal.getCurrentSlide()).find('input').focus()
+	), 500
 
 Template.registerHelper 'currentFalse', (_id) ->
 		if Session.equals('correct', false) and Session.get('CurrentTestItem')._id == _id

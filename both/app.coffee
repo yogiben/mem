@@ -47,6 +47,9 @@ App =
 		Session.set 'multiple', true
 		Session.set 'Multiples', @getMultiples()
 		Reveal.down()
+	incorrect: ->
+		Session.set 'correct', false
+		Reveal.down()
 
 if Meteor.isClient
 	window['App'] = App
