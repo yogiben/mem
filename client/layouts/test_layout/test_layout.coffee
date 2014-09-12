@@ -7,7 +7,7 @@ Template.testLayout.events
 		key = $(e.currentTarget).attr('key')
 		value = $(e.currentTarget).val()
 		Session.set key, value
-		if App.isCorrect value, Session.get('answer')
+		if App.isCorrect(value, Session.get('answer')) and Session.equals 'correct', ''
 			console.log 'CORRECT!'
 			Session.set 'correct', true
 			setTimeout (->
@@ -20,6 +20,21 @@ Template.testLayout.events
 		if App.isCorrect value, Session.get('answer')
 			Session.set('correct',true)
 			console.log 'MULTIPLE CHOICE CORRECT'
-			App.next()
+			setTimeout (->
+				  App.next()
+				), 100
 		else
 			Session.set('correct',false)
+			console.log 'DUMBASS!!'
+			Session.set 'correct', false
+			setTimeout (->
+				  Reveal.down()
+				  console.log 'moving to card'
+				), 100
+	'click .accept-incorrect': (e,t)->
+		App.next()
+
+Template.registerHelper 'currentFalse', (_id) ->
+		if Session.equals('correct', false) and Session.get('CurrentTestItem')._id == _id
+			console.log _id
+			true

@@ -91,6 +91,8 @@ Tracker.autorun ->
 	# if Session.get 'response'
 	# 	Session.set 'correct', App.isCorrect Session.get('response'), Session.get('answer')
 
+	Session.setDefault 'correct', ''
+
 	if Session.get 'CurrentTestItem'
 		if Session.equals 'prompt', 'target'
 			Session.set 'answer', Session.get('CurrentTestItem').source

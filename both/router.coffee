@@ -30,6 +30,7 @@ Router.map ->
         Session.set 'Testing', Session.get('TestQueue').splice(0,Config.testLength) 
       else
         Session.set 'Testing', Session.get('TestQueue')
+      Session.set('CurrentTestItem',Session.get('Testing')[0])
       @render()
 
 

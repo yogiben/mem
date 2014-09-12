@@ -16,14 +16,6 @@ App =
 		else
 			sets = _.union word.sets, set
 		Words.update({_id:word._id},{$set: {sets: sets}})
-	next: ->
-		if Session.get('test_index') < Session.get('Testing').length
-			console.log 'next'
-			Session.set('test_index',(Session.get('test_index')+1))
-			Session.set 'multiple', false
-			Session.set 'test-input', ''
-			Session.set 'correct', null
-			Session.set 'response', null
 	getMultiples: ->
 		Multiples = []
 		Multiples.push Session.get('CurrentTestItem')
@@ -43,16 +35,18 @@ App =
 		answer = answer.toLowerCase()
 		response == answer
 	next: ->
+		console.log 'next'
 		Session.set 'response', ''
 		Session.set 'test_input', ''
 		Session.set 'correct', ''
 		Session.set 'multiple', false
 		Session.set 'test_index', Session.get('test_index') + 1
-		Reveal.next()
+		Reveal.right()
 		$(Reveal.getCurrentSlide()).find('input').focus()
 	multiple: ->
 		Session.set 'multiple', true
 		Session.set 'Multiples', @getMultiples()
+		Reveal.down()
 
 if Meteor.isClient
 	window['App'] = App

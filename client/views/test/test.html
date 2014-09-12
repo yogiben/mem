@@ -1,4 +1,5 @@
 <template name="test">
+	<div id="test-index">{{$.Session.get 'test_index'}}</div>
 	<div class="reveal">
 	    <div class="slides">
 <!-- 	        <section>Single Horizontal Slide</section>
@@ -15,14 +16,26 @@
 			{{/each}} -->
 			{{#each $.Session.get 'Testing'}}
 				<section class="{{#if $.Session.equals 'correct' true}}correct{{/if}}{{#if $.Session.equals 'correct' false}}incorrect{{/if}}">
-					{{> testPrompt }}
-					{{#if $.Session.get 'multiple'}}
-					{{> testMultipleChoice}}
-					{{else}}
-					{{> testInput}}
-					{{/if}}
+					<section>
+						{{> testPrompt }}
+						{{> testInput}}
+					</section>
+					<section>
+						{{> testPrompt }}
+						{{> testMultipleChoice}}
+					</section>
+					<section>
+						{{> testCard}}
+						<p class="text-center">
+							<a class="btn btn-primary btn-lg accept-incorrect">Next</a>
+						</p>
+					</section>
 				</section>
-			{{/each}}				
+			{{/each}}
+			<section>
+				<h1>End of test</h1>
+				<p><a href="{{pathFor 'dashboard' username=username}}" class="btn btn-lg btn-primary">Go home</a></p>
+			</section>			
 	    </div>
 	</div>
 </template>
@@ -53,11 +66,13 @@
 <template name="testInput">
 	<input type="text" name="source" class="form-control test-input session-set" key="test_input" placeholder="{{#if $.Session.equals 'prompt' 'target'}}Type the English{{else}}Type the TARGET LANGUAGE{{/if}}">
    <div class="test-buttons">
-   	{{#if $.Session.get 'test_input'}}
-   			<a class="test-input-confirm">Submit</a>
-   			{{else}}
-   			<a class="test-input-skip">Skip</a>
-	{{/if}}
+   			<a class="test-input-skip">
+   				{{#if $.Session.get 'test_input'}}
+   				Submit
+   				{{else}}
+   				Skip
+   				{{/if}}
+   			</a>
    	</div>
 </template>
 
