@@ -3,6 +3,8 @@ App =
 		words = text.split("\n");
 		words = _.map words, (word)->
 			word = word.replace(' - ','-')
+			word = word.replace(' -','-')
+			word = word.replace('- ','-')
 			word = word.split('-')
 		words = _.filter words, (word)->
 			word.length == 3 or word.length == 2
