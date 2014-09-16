@@ -12,27 +12,27 @@
 </template>
 
 <template name="quick">
-	<div class="col-md-3">
+	<div class="col-sm-3">
 		<div class="input-group">
 		  <span class="input-group-addon"><i class="fa fa-arrow-up"></i></span>
 		  <input type="text" name="target" placeholder="{{Language.placeholder}}" required="" data-schema-key="target" maxlength="200" class="form-control">
 		</div>
 	</div>
 	{{#if Language.transliteration}}
-	<div class="col-md-3">
+	<div class="col-sm-3">
 	<div class="input-group">
 		  <span class="input-group-addon"><i class="fa fa-bullhorn"></i></span>
 		  <input type="text" name="transliteration" placeholder="{{Language.placeholderTransliteration}}" required="" data-schema-key="transliteration" maxlength="200" class="form-control">
 		</div>
 	</div>
 	{{/if}}
-	<div class="col-md-3">
+	<div class="col-sm-3">
 	<div class="input-group">
 		  <span class="input-group-addon"><i class="fa fa-arrow-down"></i></span>
 		  <input type="text" name="source" placeholder="{{Config.placeholder}}" required="" data-schema-key="source" maxlength="200" class="form-control">
 		</div>
 	</div>
-	<div class="col-md-3">
+	<div class="col-sm-3">
 		<button type="submit" class="btn btn-primary btn-sm">Add Word</button>
 	</div>
 </template>

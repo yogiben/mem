@@ -25,3 +25,16 @@ Template.multiple.events
 			Session.set 'multiple', multiple
 		else
 			Session.set 'multiple', []
+
+focusInput = ->
+    if Session.equals 'addType', 'quick'
+    	$('input[name="target"]').focus()
+    else if Session.equals 'addType', 'multiple'
+    	$('input[name="multiple"]').focus()
+
+AutoForm.hooks add:
+  onSuccess: ->
+  	focusInput()
+
+Template.add.rendered = ->
+  	focusInput()
