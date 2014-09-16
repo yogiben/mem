@@ -7,7 +7,7 @@
 				<thead>
 					<tr>
 
-						<!-- <th>&nbsp;</th> -->
+						<th class="text-center"><i class="fa fa-check"></i></th>
 						<th>{{Language.name}}</th>
 						{{#if Language.transliteration}}
 						<th>Pronouncatiation</th>
@@ -21,7 +21,13 @@
 				<tbody>
 					{{#each Words}}
 					<tr>
-						<!-- <td><input type="checkbox"></td> -->
+						<td>
+							<div class="checkbox text-center">
+							  <label>
+							    <input type="checkbox" class="select-word" value="{{_id}}">
+							  </label>
+							</div>
+						</td>
 						<td>{{target}}</td>
 						{{#if Language.transliteration}}
 						<td>{{transliteration}}</td>
@@ -70,5 +76,28 @@
 			<p class="text-center">No words yet</p>
 			{{/if}}
 		</div>
+	</div>
+
+	{{> multipleControls}}
+</template>
+
+<template name="multipleControls">
+	<div id="multiple-controls">
+		<button class="btn btn-danger" id="delete-multiple">
+			Delete
+		</button>
+		<div class="dropdown">
+  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+    Dropdown
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+    {{#each Sets}}
+    <li><a class="add-set-multiple" set="{{_id}}">{{name}}</a></li>
+    {{else}}
+    <li><a>No Sets</a></li>
+    {{/each}}
+  </ul>
+</div>
 	</div>
 </template>
