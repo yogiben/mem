@@ -36,6 +36,12 @@ Tracker.autorun ->
 	Session.set 'Sets', Sets.find( Session.get('languageFilter') ).fetch()
 	Session.set 'Tests', Tests.find( Session.get('languageFilter') ).fetch()
 
+	if Session.get('Words')
+		if Session.get('Words').length < Config.recentLength
+			Recent = Session.get('Words')
+		else
+			Recent = Session.get('Words').splice(0, Config.recentLength)
+		Session.set 'Recent', Recent
 	#Word Filter
 	Session.setDefault 'filter', {}
 
@@ -138,3 +144,5 @@ Tracker.autorun ->
 
 	if Session.get 'multiple' and typeof 'App' != 'undefined'
 		Session.set 'multipleDuplicates', App.getDuplicates Session.get('multiple')
+
+

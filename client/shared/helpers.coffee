@@ -54,6 +54,9 @@ UI.registerHelper 'username', ->
 UI.registerHelper 'Words', ->
 	Session.get 'Words'
 
+UI.registerHelper 'Recent', ->
+	Session.get 'Recent'
+
 UI.registerHelper 'Sets', ->
 	Session.get 'Sets'
 

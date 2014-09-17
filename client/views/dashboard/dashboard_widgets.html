@@ -1,0 +1,40 @@
+<template name="dashboardWelcome">
+	<div class="col-md-12">
+	{{#if Words}}
+	{{else}}
+	<div class="alert alert-success">
+		<h2>Welcome to Mem Mem</h2>
+		<p>Mem Mem is a lightweight application to organise and store all of your <strong>foreign language vocabulary</strong>.</p>
+	</div>
+	{{/if}}
+	</div>
+</template>
+
+<template name="dashboardLanguages">
+	{{#each Learning}}
+		<div class="col-lg-3 col-md-4 col-sm-6">
+			<a href="{{pathFor 'language' username=username language=string}}">
+				<div class="small-box bg-aqua">
+					<div class="inner">
+	                    <h3>
+	                        {{wordCount string false}}
+	                    </h3>
+	                    <p>
+	                        {{name}}
+	                    </p>
+	                </div>
+	                <div class="icon">
+		                <i class="fa fa-comment"></i>
+	                </div>
+				</div>
+			</a>
+		</div>
+		{{/each}}
+</template>
+
+<template name="dashboardRecent">
+	<div class="col-md-12">
+		<h2>Recent</h2>
+		{{> words wordList=Recent}}
+	</div>
+</template>

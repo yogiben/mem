@@ -14,6 +14,7 @@ Config =
 	about: 'http://benjaminpeterjones.com'
 	placeholder: 'Hello'
 	testLength: 5
+	recentLength: 10
 
 if Meteor.isClient
 	window.Config = Config
