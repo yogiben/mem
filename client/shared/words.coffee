@@ -14,7 +14,9 @@ Template.words.events
 		word = $(e.currentTarget).attr('word')
 		App.toggleSet word, set
 
-	'click input.select-word': (e,t)->
+	'click td.select-word': (e,t)->
+		input = $(e.currentTarget).find('input.select-word')
+		$(input).prop 'checked', not $(input).prop('checked')
 		countSelected()
 		
 	'click .select-all': (e,t)->

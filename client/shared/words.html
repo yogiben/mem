@@ -21,12 +21,10 @@
 				<tbody>
 					{{#each Words}}
 					<tr>
-						<td>
-							<div class="checkbox text-center">
-							  <label>
-							    <input type="checkbox" class="select-word" value="{{_id}}">
-							  </label>
-							</div>
+						<td class="select-word">
+						  <label>
+						    <input type="checkbox" class="select-word" value="{{_id}}">
+						  </label>
 						</td>
 						<td>{{target}}</td>
 						{{#if Language.transliteration}}
