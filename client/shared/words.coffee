@@ -13,17 +13,22 @@ Template.words.events
 		set = $(e.currentTarget).attr('set')
 		word = $(e.currentTarget).attr('word')
 		App.toggleSet word, set
+
 	'click input.select-word': (e,t)->
-		# selected = Session.get('selected')
-		# selected.push $(e.currentTarget).val()
-		# console.log selected
-		# Session.set 'selected', selected
+		countSelected()
+		
+	'click .select-all': (e,t)->
+		if $('input.select-word:checked').length == $('input.select-word').length
+			$('input.select-word').prop('checked', false);
+		else
+			$('input.select-word').prop('checked', true);
+		countSelected()
 
-		selected = []
-		_.each $('input.select-word:checked'), (input)->
-			selected.push $(input).val()
-
-		Session.set 'selected', selected
+countSelected = ->
+	selected = []
+	_.each $('input.select-word:checked'), (input)->
+		selected.push $(input).val()
+	Session.set 'selected', selected
 
 Template.words.rendered = ->
 	Session.set 'selected', []

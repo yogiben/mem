@@ -7,7 +7,7 @@
 				<thead>
 					<tr>
 
-						<th class="text-center"><i class="fa fa-check"></i></th>
+						<th class="text-center select-all"><i class="fa fa-check"></i></th>
 						<th>{{Language.name}}</th>
 						{{#if Language.transliteration}}
 						<th>Pronouncatiation</th>
@@ -82,22 +82,22 @@
 </template>
 
 <template name="multipleControls">
-	<div id="multiple-controls">
+	<div id="multiple-controls" class="{{#if isSelection}}selection{{/if}}">
+		<div class="dropdown dropup">
+		  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+		    Add to set
+		    <span class="caret"></span>
+		  </button>
+		  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+		    {{#each Sets}}
+		    <li><a class="add-set-multiple" set="{{_id}}">{{name}}</a></li>
+		    {{else}}
+		    <li><a>No Sets</a></li>
+		    {{/each}}
+		  </ul>
+		</div>
 		<button class="btn btn-danger" id="delete-multiple">
 			Delete
 		</button>
-		<div class="dropdown">
-  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
-    Dropdown
-    <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-    {{#each Sets}}
-    <li><a class="add-set-multiple" set="{{_id}}">{{name}}</a></li>
-    {{else}}
-    <li><a>No Sets</a></li>
-    {{/each}}
-  </ul>
-</div>
 	</div>
 </template>

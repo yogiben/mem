@@ -42,6 +42,29 @@ a
 #multiple-controls
 {
 	position: fixed;
-	bottom: 200px;
+	bottom: -50px;
 	right:20px;
+	width:200px;
+	transition-duration: 0.5s;
+
+	&.selection
+	{
+		bottom:20px;
+	}
+
+	.dropdown.dropup
+	{
+		display: inline-block;
+	}
+}
+
+.admin-layout .dropup.open > .dropdown-menu
+{
+	-webkit-animation:none !important;
+	animation:none !important;
+}
+
+.select-all
+{
+	cursor: pointer;
 }
