@@ -3,7 +3,7 @@
 	{{#if Words}}
 	{{else}}
 	<div class="alert alert-success">
-		<h2>Welcome to Mem Mem</h2>
+		<h2>Welcome to {{Config.name}}</h2>
 		<p>Mem Mem is a lightweight application to organise and store all of your <strong>foreign language vocabulary</strong>.</p>
 	</div>
 	{{/if}}
@@ -33,8 +33,10 @@
 </template>
 
 <template name="dashboardRecent">
+	{{#if Recent}}
 	<div class="col-md-12">
 		<h2>Recent</h2>
 		{{> words wordList=Recent}}
 	</div>
+	{{/if}}
 </template>
