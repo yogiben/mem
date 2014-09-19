@@ -1,3 +1,16 @@
+Template.quick.rendered = () ->
+	Session.set 'quick-target', ''
+
+Template.quick.destroyed = () ->
+	Session.set 'quick-target', ''
+
+Template.quick.events
+	'keyup input[name="target"]': (e,t)->
+		Session.set 'quick-target', $(e.currentTarget).val()
+
+
+
+
 Template.multiple.events
 	'click #addMultiple': () ->
 		console.log 'addMultiple'
@@ -19,7 +32,7 @@ Template.multiple.events
 
 
 
-	'keydown textarea[name="multiple"]': (e,t)->
+	'keyup textarea[name="multiple"],change textarea[name="multiple"]': (e,t)->
 		if $(e.currentTarget).val() != ''
 			multiple = App.parseMultiple $(e.currentTarget).val()
 			Session.set 'multiple', multiple

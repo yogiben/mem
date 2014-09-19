@@ -22,7 +22,7 @@
 				<tbody>
 					{{#each wordList}}
 					<tr>
-						{{#if checkbox}}
+						{{#if ../checkbox}}
 						<td class="select-word">
 						  <label>
 						    <input type="checkbox" class="select-word" value="{{_id}}">
@@ -67,7 +67,7 @@
 							  </ul>
 							</div>
 						</td>
-						<td><a href="#afModal" data-toggle="modal" doc="{{_id}}" class="btn btn-primary btn-xs session-set" key="word" value="{{_id}}" collection="wordList" omitFields="createdAt,owner,langauge,level,mems,history,updatedAt,sets" operation="update" buttonContent="Save" title="Edit Word" buttonClass="btn-success"><i class="fa fa-pencil"></i></a></td>
+						<td><a href="#afModal" data-toggle="modal" doc="{{_id}}" class="btn btn-primary btn-xs session-set" key="word" value="{{_id}}" collection="Words" omitFields="createdAt,owner,langauge,level,mems,history,updatedAt,sets" operation="update" buttonContent="Save" title="Edit Word" buttonClass="btn-success"><i class="fa fa-pencil"></i></a></td>
 						<td><a href="#afModal" data-toggle="modal" class="btn btn-danger btn-xs" collection="wordList" operation="remove" doc="{{_id}}" title="Delete Word"><i class="fa fa-times"></i></a></td>
 					</tr>
 					{{/each}}
