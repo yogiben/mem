@@ -16,14 +16,14 @@
 					<section>
 						{{> testCard}}
 						<p class="text-center">
-							<a class="btn btn-primary btn-lg accept-incorrect">Next</a>
+							<a class="accept-incorrect">Next</a>
 						</p>
 					</section>
 				</section>
 			{{/each}}
-			<section>
+			<section class="test-end">
 				<h3>End of test</h3>
-				<table id="test-end">
+				<table>
 						<tbody>
 						{{#each $.Session.get 'Testing'}}
 							<tr>
@@ -34,7 +34,7 @@
 						{{/each}}
 						</tbody>
 					</table>
-				<p><a href="{{pathFor 'dashboard' username=username}}" class="btn btn-lg btn-primary">Go home</a></p>
+				<p><a href="{{pathFor 'dashboard' username=username}}">Go home</a></p>
 			</section>			
 	    </div>
 	</div>
