@@ -1,12 +1,13 @@
-	<template name="sets">
-		<h4>Sets</h4>
-		{{#each Sets}}
-			{{#if _.isEqual Set._id _id}}
-			<a href="{{pathFor 'language' username=User.username language=language}}" key="set" value="{{_id}}" class="btn btn-primary session-set">{{name}}</a>
-			{{else}}
-			<a href="{{pathFor 'set' username=User.username language=language set=name}}" key="set" value="{{_id}}" class="btn btn-default session-set">{{name}}</a>
-			{{/if}}
+<template name="sets">
+	<h4>Sets</h4>
+	<a href="{{pathFor 'language' username=User.username language=language}}" class="btn btn-default">All</a>
+	{{#each Sets}}
+		{{#if _.isEqual Set._id _id}}
+		<a href="{{pathFor 'language' username=User.username language=language}}" key="set" value="{{_id}}" class="btn btn-primary session-set">{{name}}</a>
 		{{else}}
-		<p>No sets yet</p>
-		{{/each}}
-	</template>
+		<a href="{{pathFor 'set' username=User.username language=language set=name}}" key="set" value="{{_id}}" class="btn btn-default session-set">{{name}}</a>
+		{{/if}}
+	{{else}}
+	<p>No sets yet</p>
+	{{/each}}
+</template>
