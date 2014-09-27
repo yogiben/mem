@@ -23,3 +23,7 @@ Tests.allow
 		doc.owner == userId
 	update: (userId, doc, fields, modifier) ->
 		doc.owner == userId
+
+Answers.allow
+	insert: (userId, doc) ->
+		doc.owner == userId
