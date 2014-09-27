@@ -2,6 +2,11 @@ Schemas = {}
 
 @Answers = new Meteor.Collection('answers');
 
+Answers.new = (_id,status)->
+	@insert
+		word: _id
+		status: status
+
 Schemas.Answers = new SimpleSchema
 	word:
 		type:String
@@ -12,7 +17,7 @@ Schemas.Answers = new SimpleSchema
 			if this.isInsert
 				new Date()
 
-	correct:
+	status:
 		type: String
 		allowedValues:
 			[

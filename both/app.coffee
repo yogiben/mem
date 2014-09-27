@@ -49,6 +49,12 @@ App =
 		Session.set 'multiple', true
 		Session.set 'Multiples', @getMultiples()
 		Reveal.down()
+	correct: ->
+		if Session.get('mulitple')
+			Answers.new Session.get('CurrentTestItem')._id, 'multiple'
+		else
+			Answers.new Session.get('CurrentTestItem')._id, 'string'
+
 	incorrect: ->
 		Session.set 'correct', false
 		Reveal.down()

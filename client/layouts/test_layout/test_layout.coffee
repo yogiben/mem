@@ -10,6 +10,12 @@ Template.testLayout.events
 		if App.isCorrect(value, Session.get('answer')) and Session.equals 'correct', ''
 			console.log 'CORRECT!'
 			Session.set 'correct', true
+
+			#Insert into Answers collection
+			Answers.new Session.get('CurrentTestItem')._id, 'string'
+
+
+
 			setTimeout (->
 				  App.next()
 				), 100
@@ -18,6 +24,7 @@ Template.testLayout.events
 			if Reveal.getIndices().v == 0
 				App.multiple()
 			else if Reveal.getIndices().v == 1
+				Answers.new Session.get('CurrentTestItem')._id, 'incorrect'
 				App.incorrect()
 			else if Reveal.getIndices().v == 2
 				App.next()
@@ -30,10 +37,14 @@ Template.testLayout.events
 		if App.isCorrect value, Session.get('answer')
 			Session.set('correct',true)
 			console.log 'MULTIPLE CHOICE CORRECT'
+
+			Answers.new Session.get('CurrentTestItem')._id, 'multiple'
+
 			setTimeout (->
 				  App.next()
 				), 100
 		else
+			Answers.new Session.get('CurrentTestItem')._id, 'incorrect'
 			setTimeout (->
 				  App.incorrect()
 				), 100
