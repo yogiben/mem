@@ -42,6 +42,9 @@ Template.registerHelper 'multiple', ->
 Template.registerHelper 'Testing',->
 	Session.get 'Testing'
 
+Template.registerHelper 'CurrentTestItem',->
+	Session.get 'CurrentTestItem'
+
 Template.registerHelper '_', ->
 	_
 
@@ -88,3 +91,6 @@ Template.registerHelper 'wordCount', (language,set) ->
 		Words.find({language:language}).fetch().length
 	else
 		Words.find().fetch().length
+
+Template.registerHelper 'points', (_id)->
+	App.getPoints _id

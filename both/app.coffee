@@ -59,6 +59,14 @@ App =
 		Session.set 'correct', false
 		Reveal.down()
 
+	getPoints: (_id)->
+		points = 0
+		_.each Config.points, (array)->
+			status = array[0]
+			value = array[1]
+			points += value * Answers.find({$and: [{word:_id},{status: status}]}).fetch().length
+		points
+
 if Meteor.isClient
 	window['App'] = App
 else if Meteor.isServer

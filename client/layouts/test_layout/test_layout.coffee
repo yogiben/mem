@@ -11,11 +11,6 @@ Template.testLayout.events
 			console.log 'CORRECT!'
 			Session.set 'correct', true
 
-			#Insert into Answers collection
-			Answers.new Session.get('CurrentTestItem')._id, 'string'
-
-
-
 			setTimeout (->
 				  App.next()
 				), 100
