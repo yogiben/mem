@@ -30,11 +30,12 @@
 								<td>{{target}}</td>
 								<td>{{transliteration}}</td>
 								<td>{{source}}</td>
+								<td>{{lastPoints _id}}</td>
 							</tr>
 						{{/each}}
 						</tbody>
 					</table>
-				<p><a href="{{pathFor 'dashboard' username=username}}">Go home</a></p>
+				<p><a id="test-home" href="{{pathFor 'dashboard' username=username}}">Go home</a></p>
 			</section>			
 	    </div>
 	</div>

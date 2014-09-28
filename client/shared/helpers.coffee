@@ -94,3 +94,6 @@ Template.registerHelper 'wordCount', (language,set) ->
 
 Template.registerHelper 'points', (_id)->
 	App.getPoints _id
+
+Template.registerHelper 'lastPoints', (_id)->
+	App.getLastPoints _id
