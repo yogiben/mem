@@ -97,3 +97,11 @@ Template.registerHelper 'points', (_id)->
 
 Template.registerHelper 'lastPoints', (_id)->
 	App.getLastPoints _id
+
+Template.registerHelper 'ago', (date) ->
+    moment(date).fromNow()
+
+Template.registerHelper 'lastTested', (_id)->
+	answer = Answers.findOne {word: _id}, {sort: {createdAt: -1}}
+	if typeof answer != 'undefined'
+	    moment(answer.createdAt).fromNow()	
