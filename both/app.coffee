@@ -1,4 +1,4 @@
-App = 
+@App = 
 	parseMultiple: (text)->
 		words = text.split("\n");
 		words = _.map words, (word)->
@@ -49,11 +49,30 @@ App =
 		Session.set 'multiple', true
 		Session.set 'Multiples', @getMultiples()
 		Reveal.down()
+	correct: ->
+		if Session.get 'multiple'
+			Answers.new Session.get('CurrentTestItem')._id, 'multiple'
+			console.log 'correct multiple'
+		else
+			Answers.new Session.get('CurrentTestItem')._id, 'string'
+			console.log 'correct string'
+
 	incorrect: ->
+		Answers.new Session.get('CurrentTestItem')._id, 'incorrect'
 		Session.set 'correct', false
 		Reveal.down()
 
-if Meteor.isClient
-	window['App'] = App
-else if Meteor.isServer
-	global['App'] = App
+	getPoints: (_id)->
+		points = 0
+		_.each Config.points, (array)->
+			status = array[0]
+			value = array[1]
+			points += value * Answers.find({$and: [{word:_id},{status: status}]}).fetch().length
+		points
+	getLastPoints: (_id)->
+		answer = Answers.findOne {word:_id}, {sort: {createdAt: -1}}
+		if typeof answer != 'undefined'
+			points = 0
+			_.each Config.points, (array)->
+				points = array[1] if array[0] == answer.status
+			points

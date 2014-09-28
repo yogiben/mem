@@ -9,3 +9,6 @@ Meteor.publish 'sets', ->
 
 Meteor.publish 'tests', ->
 	Tests.find {owner:@userId}
+
+Meteor.publish 'answers', ->
+	Answers.find {owner:@userId}

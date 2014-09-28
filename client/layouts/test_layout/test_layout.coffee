@@ -10,6 +10,9 @@ Template.testLayout.events
 		if App.isCorrect(value, Session.get('answer')) and Session.equals 'correct', ''
 			console.log 'CORRECT!'
 			Session.set 'correct', true
+
+			App.correct()
+
 			setTimeout (->
 				  App.next()
 				), 100
@@ -30,10 +33,14 @@ Template.testLayout.events
 		if App.isCorrect value, Session.get('answer')
 			Session.set('correct',true)
 			console.log 'MULTIPLE CHOICE CORRECT'
+
+			App.correct()
+
 			setTimeout (->
 				  App.next()
 				), 100
 		else
+			
 			setTimeout (->
 				  App.incorrect()
 				), 100

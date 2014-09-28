@@ -47,6 +47,7 @@ focusInput = ->
 
 AutoForm.hooks add:
   onSuccess: ->
+  	Session.set 'quick-target', null
   	focusInput()
 
 Template.add.rendered = ->

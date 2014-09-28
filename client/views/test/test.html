@@ -1,19 +1,8 @@
 <template name="test">
 	<div id="test-index">{{$.Session.get 'test_index'}}</div>
+	<div id="test-score">{{points CurrentTestItem._id}}</div>
 	<div class="reveal">
 	    <div class="slides">
-<!-- 	        <section>Single Horizontal Slide</section>
-	        <section>
-	            <section>Vertical Slide 1</section>
-	            <section>Vertical Slide 2</section>
-	        </section> -->
-<!-- 			{{#each $.Session.get 'Testing'}}
-				{{#if $lt level 1}}
-				<section>
-					{{> testCard}}
-				</section>
-				{{/if}}
-			{{/each}} -->
 			{{#each $.Session.get 'Testing'}}
 				<section class="{{#if $.Session.equals 'correct' true}}correct{{/if}}{{#if $.Session.equals 'correct' false}}incorrect{{/if}}">
 					<section>
@@ -27,37 +16,26 @@
 					<section>
 						{{> testCard}}
 						<p class="text-center">
-							<a class="btn btn-primary btn-lg accept-incorrect">Next</a>
+							<a class="accept-incorrect">Next</a>
 						</p>
 					</section>
 				</section>
 			{{/each}}
-			<section>
+			<section class="test-end">
 				<h3>End of test</h3>
 				<table>
-						<!-- <thead>
-							<tr>
-								<th>Item</th>
-								<th>Value</th>
-								<th>Quantity</th>
-							</tr>
-						</thead> -->
 						<tbody>
 						{{#each $.Session.get 'Testing'}}
 							<tr>
 								<td>{{target}}</td>
 								<td>{{transliteration}}</td>
 								<td>{{source}}</td>
+								<td>{{lastPoints _id}}</td>
 							</tr>
 						{{/each}}
 						</tbody>
 					</table>
-<!-- 				{{#each $.Session.get 'Testing'}}
-				<div class="col-md-3">
-					{{> testPrompt }}
-				</div>
-				{{/each}} -->
-				<p><a href="{{pathFor 'dashboard' username=username}}" class="btn btn-lg btn-primary">Go home</a></p>
+				<p><a id="test-home" href="{{pathFor 'dashboard' username=username}}">Go home</a></p>
 			</section>			
 	    </div>
 	</div>

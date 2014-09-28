@@ -1,90 +1,99 @@
-UI.registerHelper 'Config', ->
+Template.registerHelper 'Config', ->
 	Config
 
-UI.registerHelper 'niceName',->
+Template.registerHelper 'niceName',->
 	if Session.get('User')
 		if Session.get('User').profile.firstName
 			Session.get('User').profile.firstName
 		else
 			Session.get('User').emails[0].address
 
-UI.registerHelper 'Users', ->
+Template.registerHelper 'Users', ->
 	Meteor.users
 
-UI.registerHelper 'Word', ->
+Template.registerHelper 'Word', ->
 	Session.get 'Word'
 
-UI.registerHelper 'Language', ->
+Template.registerHelper 'Language', ->
 	Session.get 'Language'
 
-UI.registerHelper 'Languages', ->
+Template.registerHelper 'Languages', ->
 	Languages
 
-UI.registerHelper 'learning', ->
+Template.registerHelper 'learning', ->
 	Session.get 'learning'
 
-UI.registerHelper 'Learning', ->
+Template.registerHelper 'Learning', ->
 	Session.get 'Learning'
 
-UI.registerHelper 'toArray', ->
+Template.registerHelper 'toArray', ->
 	_.map Languages, (Language)->
 		Language
 
-UI.registerHelper 'set', ->
+Template.registerHelper 'set', ->
 	Session.get 'set'
 
-UI.registerHelper 'Set', ->
+Template.registerHelper 'Set', ->
 	Session.get 'Set'
 
-UI.registerHelper 'multiple', ->
+Template.registerHelper 'multiple', ->
 	Session.get 'multiple'
 
-UI.registerHelper 'Testing',->
+Template.registerHelper 'Testing',->
 	Session.get 'Testing'
 
-UI.registerHelper '_', ->
+Template.registerHelper 'CurrentTestItem',->
+	Session.get 'CurrentTestItem'
+
+Template.registerHelper '_', ->
 	_
 
-UI.registerHelper 'User', ->
+Template.registerHelper 'User', ->
 	Meteor.user()
 
-UI.registerHelper 'username', ->
+Template.registerHelper 'username', ->
 	Session.get 'username'
 
-UI.registerHelper 'Words', ->
+Template.registerHelper 'Words', ->
 	Session.get 'Words'
 
-UI.registerHelper 'Recent', ->
+Template.registerHelper 'Recent', ->
 	Session.get 'Recent'
 
-UI.registerHelper 'Sets', ->
+Template.registerHelper 'Sets', ->
 	Session.get 'Sets'
 
-UI.registerHelper 'Tests', ->
+Template.registerHelper 'Tests', ->
 	Session.get 'Tests'
 
-UI.registerHelper 'addType',->
+Template.registerHelper 'addType',->
 	Session.get 'addType'
 
-UI.registerHelper 'addSets',->
+Template.registerHelper 'addSets',->
 	Session.get 'addSets'
 
-UI.registerHelper 'getSets', (language)->
+Template.registerHelper 'getSets', (language)->
 	Sets.find({language:language}).fetch()
 
-UI.registerHelper 'getDoc', (_id,collection)->
+Template.registerHelper 'getDoc', (_id,collection)->
 	window[collection].findOne {_id:_id}
 
-UI.registerHelper 'allSets', ->
+Template.registerHelper 'allSets', ->
 	Session.get 'sets'
 
-UI.registerHelper 'currentTesting', ->
+Template.registerHelper 'currentTesting', ->
 	Session.get 'currentTesting'
 
-UI.registerHelper 'wordCount', (language,set) ->
+Template.registerHelper 'wordCount', (language,set) ->
 	if language and set
 		Words.find({$and : [{language:language},{sets: { $all : [ set ] }}]}).fetch().length
 	else if language
 		Words.find({language:language}).fetch().length
 	else
 		Words.find().fetch().length
+
+Template.registerHelper 'points', (_id)->
+	App.getPoints _id
+
+Template.registerHelper 'lastPoints', (_id)->
+	App.getLastPoints _id

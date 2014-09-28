@@ -16,6 +16,13 @@ Config =
 	testLength: 5
 	recentLength: 10
 
+	points: [
+			[ 'string',     3 ],
+			[ 'multiple',   1 ],
+			[ 'incorrect',  0 ]
+		]
+
+
 if Meteor.isClient
 	window.Config = Config
 else if Meteor.isServer

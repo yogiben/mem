@@ -35,7 +35,9 @@
 	<div class="col-sm-3">
 		{{#if $.Session.get 'quick-duplicate'}}
 			{{#with $.Session.get 'quick-duplicate'}}
-				<a href="#afModal" data-toggle="modal" doc="{{_id}}" class="btn btn-default btn-sm session-set" key="word" value="{{_id}}" collection="Words" omitFields="createdAt,owner,langauge,level,mems,history,updatedAt,sets" operation="update" buttonContent="Save" title="Edit Word" buttonClass="btn-success">Edit word</a>
+				<!-- <a href="#afModal" data-toggle="modal" doc="{{_id}}" class="btn btn-default btn-sm session-set" key="word" value="{{_id}}" collection="Words" omitFields="createdAt,owner,langauge,level,mems,history,updatedAt,sets" operation="update" buttonContent="Save" title="Edit Word" buttonClass="btn-success">Edit word</a> -->
+				<td><a href="#afModal" data-toggle="modal" doc="{{_id}}" class="btn btn-primary btn-xs session-set" key="word" value="{{_id}}" collection="Words" omitFields="createdAt,owner,langauge,level,mems,history,updatedAt,sets" operation="update" buttonContent="Save" title="Edit Word" buttonClass="btn-success">Edit word</a></td>
+
 			{{/with}}
 		{{/if}}
 		<button type="submit" class="btn btn-primary btn-sm">Add Word</button>

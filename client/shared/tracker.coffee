@@ -3,6 +3,7 @@ Tracker.autorun ->
 	Meteor.subscribe 'words'
 	Meteor.subscribe 'sets'
 	Meteor.subscribe 'tests'
+	Meteor.subscribe 'answers'
 
 	if Session.get 'word'
 		Session.set 'Word',Words.findOne {_id:Session.get('word')}
