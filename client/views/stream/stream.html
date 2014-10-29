@@ -1,0 +1,42 @@
+<template name="stream">
+	<table class="table table-striped table-hover">
+				<thead>
+					<tr>
+						{{#if checkbox}}
+						<th class="text-center select-all"><i class="fa fa-check"></i></th>
+						{{/if}}
+						<th>{{Language.name}}</th>
+						{{#if Language.transliteration}}
+						<th>Pronouncatiation</th>
+						{{/if}}
+						<th>English</th>
+						<th>Points</th>
+						<th>Last score</th>
+						<th>Created</th>
+						<th>Last tested</th>
+					</tr>
+				</thead>
+				<tbody>
+					{{#each words}}
+					<tr>
+						{{#if ../checkbox}}
+						<td class="select-word">
+						  <label>
+						    <input type="checkbox" class="select-word" value="{{_id}}">
+						  </label>
+						</td>
+						{{/if}}
+						<td>{{target}}</td>
+						{{#if Language.transliteration}}
+						<td>{{transliteration}}</td>
+						{{/if}}
+						<td>{{source}}</td>
+						<td>{{points _id}}</td>
+						<td>{{lastPoints _id}}</td>
+						<td>{{ago createdAt}}</td>
+						<td>{{lastTested _id}}</td>
+					</tr>
+					{{/each}}
+				</tbody>
+			</table>
+</template>

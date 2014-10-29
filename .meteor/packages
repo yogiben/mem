@@ -17,5 +17,9 @@ joshowens:accounts-entry
 mizzao:bootstrap-3
 chrismbeckett:fontawesome4
 raix:handlebar-helpers
+<<<<<<< HEAD
 yogiben:autoform-modals
+=======
+mrt:moment
+>>>>>>> feature/test-queue
 

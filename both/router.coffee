@@ -33,6 +33,17 @@ Router.map ->
       Session.set('CurrentTestItem',Session.get('Testing')[0])
       @render()
 
+  @route "stream",
+    path: "/:username/stream"
+    layoutTemplate: "dashboardLayout"
+    data: ->
+      words: Words.find({},{sort: {createdAt: -1}}).fetch()
+    action: ->
+      Session.set 'language', null
+      Session.set 'title', 'Test queue'
+      Session.set 'subtitle', 'Your words in the order that they\'ll be tested'
+      @render()
+
 
   @route "add",
     path: "/:username/add"
@@ -89,6 +100,7 @@ Router.map ->
       Session.set 'subtitle', Session.get('Words').length + ' words'
       Session.set 'set', @params.set
       @render()
+
 
 Router.waitOn ->
   Meteor.subscribe 'user'
