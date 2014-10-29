@@ -3,17 +3,17 @@
 		<div class="col-md-12">
 			<!-- <h4>wordList</h4> -->
 			{{#if wordList}}
-			<table class="table table-striped table-hover">
+			<table class="table table-hover table-wordlist">
 				<thead>
 					<tr>
 						{{#if checkbox}}
 						<th class="text-center select-all"><i class="fa fa-check"></i></th>
 						{{/if}}
-						<th>{{Language.name}}</th>
+						<th class="text-right">{{Language.name}}</th>
 						{{#if Language.transliteration}}
-						<th>Pronouncatiation</th>
+						<th class="text-center">Pronouncatiation</th>
 						{{/if}}
-						<th>English</th>
+						<th class="text-left">English</th>
 						{{#if checkbox}}
 						<th>Sets</th>
 						<th>Edit</th>
@@ -31,11 +31,11 @@
 						  </label>
 						</td>
 						{{/if}}
-						<td>{{target}}</td>
+						<td class="text-right">{{target}}</td>
 						{{#if Language.transliteration}}
-						<td>{{transliteration}}</td>
+						<td class="text-center">{{transliteration}}</td>
 						{{/if}}
-						<td>{{source}}</td>
+						<td class="text-left">{{source}}</td>
 						{{#if ../checkbox}}
 						<td>
 							<div class="dropdown">
