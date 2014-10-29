@@ -13,9 +13,10 @@ aldeed:autoform
 alanning:roles
 aldeed:collection2
 aldeed:simple-schema
-joshowens:accounts-entry
 mizzao:bootstrap-3
 chrismbeckett:fontawesome4
 raix:handlebar-helpers
 yogiben:autoform-modals
 mrt:moment
+joshowens:accounts-entry@0.9.0
+
