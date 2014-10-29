@@ -14,9 +14,11 @@
 						<th>Pronouncatiation</th>
 						{{/if}}
 						<th>English</th>
+						{{#if checkbox}}
 						<th>Sets</th>
 						<th>Edit</th>
 						<th>Delete</th>
+						{{/if}}
 					</tr>
 				</thead>
 				<tbody>
@@ -34,6 +36,7 @@
 						<td>{{transliteration}}</td>
 						{{/if}}
 						<td>{{source}}</td>
+						{{#if ../checkbox}}
 						<td>
 							<div class="dropdown">
 							  <a id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
@@ -69,6 +72,7 @@
 						</td>
 						<td><a href="#afModal" data-toggle="modal" doc="{{_id}}" class="btn btn-primary btn-xs session-set" key="word" value="{{_id}}" collection="Words" omitFields="createdAt,owner,langauge,level,mems,history,updatedAt,sets" operation="update" buttonContent="Save" title="Edit Word" buttonClass="btn-success"><i class="fa fa-pencil"></i></a></td>
 						<td><a href="#afModal" data-toggle="modal" class="btn btn-danger btn-xs" collection="wordList" operation="remove" doc="{{_id}}" title="Delete Word"><i class="fa fa-times"></i></a></td>
+						{{/if}}
 					</tr>
 					{{/each}}
 				</tbody>
