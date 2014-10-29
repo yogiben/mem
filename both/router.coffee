@@ -64,29 +64,29 @@ Router.map ->
     action: ->
       Session.set 'language', @params.language
       Session.set 'title', Languages[@params.language].name
-      Session.set 'subtitle', 'Learning ' + 666 + ' of ' + Session.get('Words').length + ' words'
+      Session.set 'subtitle', Session.get('Words').length + ' words'
       Session.set 'set', null
       @render()
 
   @route "words",
     path: "/:username/:language/all"
-    template: 'language'
+    template: 'languageAll'
     layoutTemplate: "dashboardLayout"
     action: ->
       Session.set 'language', @params.language
       Session.set 'title', Languages[@params.language].name
-      Session.set 'subtitle', 'Learning ' + 666 + ' of ' + Session.get('Words').length + ' words'
+      Session.set 'subtitle', Session.get('Words').length + ' words'
       Session.set 'set', null
       @render()
 
   @route "set",
     path: "/:username/:language/:set"
-    template: 'language'
+    template: 'languageAll'
     layoutTemplate: "dashboardLayout"
     action: ->
       Session.set 'language', @params.language
       Session.set 'title', @params.set
-      Session.set 'subtitle', 'Learning ' + 666 + ' of ' + Session.get('Words').length + ' words'
+      Session.set 'subtitle', Session.get('Words').length + ' words'
       Session.set 'set', @params.set
       @render()
 

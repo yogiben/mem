@@ -14,6 +14,9 @@ Template.registerHelper 'Users', ->
 Template.registerHelper 'Word', ->
 	Session.get 'Word'
 
+Template.registerHelper 'language', ->
+	Session.get 'language'
+
 Template.registerHelper 'Language', ->
 	Session.get 'Language'
 
@@ -97,3 +100,12 @@ Template.registerHelper 'points', (_id)->
 
 Template.registerHelper 'lastPoints', (_id)->
 	App.getLastPoints _id
+
+
+Template.registerHelper 'modalFields', ->
+	if Session.get('Language').transliteration
+		console.log 'transliteration'
+		['source','transliteration','target']
+	else
+		console.log 'no transliteration'
+		['source','target']

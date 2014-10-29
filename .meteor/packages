@@ -16,5 +16,6 @@ aldeed:simple-schema
 joshowens:accounts-entry
 mizzao:bootstrap-3
 chrismbeckett:fontawesome4
-yogiben:collection-modals
 raix:handlebar-helpers
+yogiben:autoform-modals
+

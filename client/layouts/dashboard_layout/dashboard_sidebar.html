@@ -1,7 +1,7 @@
 <template name="dashboardSidebar">
 	<aside class="left-side sidebar-offcanvas">
 		<!-- sidebar: style can be found in sidebar.less -->
-		<section class="sidebar">		
+		<section class="sidebar" data-spy="affix" data-offset-top="60" data-offset-bottom="200">		
 			<!-- search form -->
 			<!-- <form class="sidebar-form">
 				<div class="input-group">
@@ -14,15 +14,22 @@
 			<!-- /.search form -->
 			<!-- sidebar menu: : style can be found in sidebar.less -->
 			<ul class="sidebar-menu">
-				<li>
+				<!-- <li>
 					<a href="{{pathFor 'dashboard' username=username}}">
 						<i class="fa fa-dashboard"></i> <span>Dashboard</span>
 					</a>
-				</li>
-				{{#each Learning}}
+				</li> -->
+				{{#if Language}}
+				<p class="text-center">
+					<a class="btn btn-primary" href="{{pathFor 'addL' username=username language=language}}">
+					    <span><i class="fa fa-plus"></i> Add words</span>
+					</a>
+				</p>
+				{{/if}}
+				{{#with Language}}
 					<li>
 						<a href="{{pathFor 'language' username=username language=string}}">
-							{{name}}
+							Dashboard
 						</a>
 					</li>
 					<li class="all">
@@ -37,7 +44,7 @@
 						</a>
 					</li>
 					{{/each}}
-				{{/each}}
+				{{/with}}
 				<!-- <li class="treeview">
 					<a href="#">
 						<i class="fa fa-{{this.icon}}"></i>

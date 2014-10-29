@@ -1,14 +1,4 @@
 @App = 
-	parseMultiple: (text)->
-		words = text.split("\n");
-		words = _.map words, (word)->
-			word = word.replace(' - ','-')
-			word = word.replace(' -','-')
-			word = word.replace('- ','-')
-			word = word.split('-')
-		words = _.filter words, (word)->
-			word.length == 3 or word.length == 2
-		words
 	getDuplicates: (array)->
 		array
 	toggleSet: (word,set)->
@@ -76,3 +66,62 @@
 			_.each Config.points, (array)->
 				points = array[1] if array[0] == answer.status
 			points
+
+	#Parsing functions
+	parseMultiple: (text)->
+		words = text.split("\n")
+		words = _.map words, (word)->
+			word = word.replace(' - ','-')
+			word = word.replace(' -','-')
+			word = word.replace('- ','-')
+			word = word.split('-')
+		words = _.filter words, (word)->
+			word.length == 3 or word.length == 2
+		words
+
+	parseTranslator: (target,source, transliteration) ->
+		targets = target.split("\n")
+		sources = source.split("\n")
+
+		if transliteration
+			transliterations = transliteration.split("\n")
+
+			if targets.length != sources.length or transliterations.length != sources.length
+				return alert 'The three inputs need to have the same number of lines'
+		else
+			transliterations = null
+			if targets.length != sources.length
+				return alert 'Both sides need to have the same number of lines'
+
+		if targets.length == 0
+			return alert 'Input empty'
+
+		console.log 'great'
+
+		words = []
+
+		if transliterations
+			for x, index in targets
+				if targets[index] && sources[index]
+					word = [
+						targets[index]
+						sources[index]
+						transliterations[index]
+					]
+					words.push word
+		else
+			for x, index in targets
+				if targets[index] && sources[index]
+					word = [
+						targets[index]
+						sources[index]
+					]
+					words.push word
+
+		words
+
+
+
+
+
+
