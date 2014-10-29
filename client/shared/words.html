@@ -31,11 +31,17 @@
 						  </label>
 						</td>
 						{{/if}}
-						<td class="text-right">{{target}}</td>
+						<td class="text-right">
+							<a href="#afModal" data-toggle="modal" doc="{{_id}}" class="session-set" key="word" value="{{_id}}" collection="Words" fields='source,transliteration,target' operation="update" buttonContent="Save" title="Edit Word" buttonClass="btn-success">{{target}}</a>
+						</td>
 						{{#if Language.transliteration}}
-						<td class="text-center">{{transliteration}}</td>
+						<td class="text-center">
+							<a href="#afModal" data-toggle="modal" doc="{{_id}}" class="session-set" key="word" value="{{_id}}" collection="Words" fields='source,transliteration,target' operation="update" buttonContent="Save" title="Edit Word" buttonClass="btn-success">{{transliteration}}</a>
+						</td>
 						{{/if}}
-						<td class="text-left">{{source}}</td>
+						<td class="text-left">
+							<a href="#afModal" data-toggle="modal" doc="{{_id}}" class="session-set" key="word" value="{{_id}}" collection="Words" fields='source,transliteration,target' operation="update" buttonContent="Save" title="Edit Word" buttonClass="btn-success">{{source}}</a>
+						</td>
 						{{#if ../checkbox}}
 						<td>
 							<div class="dropdown">

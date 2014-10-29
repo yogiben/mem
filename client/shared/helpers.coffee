@@ -100,3 +100,12 @@ Template.registerHelper 'points', (_id)->
 
 Template.registerHelper 'lastPoints', (_id)->
 	App.getLastPoints _id
+
+
+Template.registerHelper 'modalFields', ->
+	if Session.get('Language').transliteration
+		console.log 'transliteration'
+		['source','transliteration','target']
+	else
+		console.log 'no transliteration'
+		['source','target']
