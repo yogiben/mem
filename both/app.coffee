@@ -71,6 +71,7 @@
 	parseMultiple: (text)->
 		words = text.split("\n")
 		words = _.map words, (word)->
+			word = word.replace('－','-')
 			word = word.replace(' - ','-')
 			word = word.replace(' -','-')
 			word = word.replace('- ','-')
