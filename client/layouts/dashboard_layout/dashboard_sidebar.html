@@ -19,7 +19,7 @@
 						<i class="fa fa-dashboard"></i> <span>Dashboard</span>
 					</a>
 				</li>
-				{{#each Learning}}
+				{{#with Language}}
 					<li>
 						<a href="{{pathFor 'language' username=username language=string}}">
 							{{name}}
@@ -37,7 +37,7 @@
 						</a>
 					</li>
 					{{/each}}
-				{{/each}}
+				{{/with}}
 				<!-- <li class="treeview">
 					<a href="#">
 						<i class="fa fa-{{this.icon}}"></i>
