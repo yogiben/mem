@@ -23,13 +23,6 @@ a
 	}
 }
 
-.test-button
-{
-    float: right;
-    position: relative;
-    bottom: 32px;
-}
-
 #test-modal
 {
 	.question
@@ -95,7 +88,7 @@ a
 
 .btn
 {
-	&.btn-primary
+	&.btn-primary, &.btn-danger
 	{
 		color:white !important;
 	}
@@ -116,3 +109,43 @@ section.sidebar
 	overflow-y: scroll;
 	height:100vh;
 }
+
+.logo
+{
+	position: fixed;
+}
+
+.content-header
+{
+	&.affix
+	{
+		position: fixed !important;
+		top:0;
+	}
+
+	// left: 220px;
+	left: 0;
+	right: 0;
+	position: absolute !important;
+
+	background-color:white;
+	// width: calc(100vw - 220px);
+	z-index: 10000;
+}
+
+.content-header
+{
+	h1
+	{
+		// display: inline-block;
+	}
+
+	.pull-right
+	{
+		position: absolute;
+		bottom: 6px;
+		right: 0.3em;
+		bottom: 9px;
+	}
+}
+

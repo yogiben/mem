@@ -18,110 +18,88 @@
 							<i class="fa fa-dashboard"></i> <span>Dashboard</span>
 						</a>
 					</li> -->
-					{{#if Language}}
-					<p class="text-center">
-						<a class="btn btn-primary" href="{{pathFor 'addL' username=username language=language}}">
-						    <span><i class="fa fa-plus"></i> Add words</span>
-						</a>
-					</p>
-					{{/if}}
 			<div class="sidebar-scroll">	
 					{{#with Language}}
 					<ul class="sidebar-menu">
 						<li>
 							<a href="{{pathFor 'language' username=username language=string}}">
-								Dashboard
+								<i class="fa fa-circle"></i> Dashboard
 							</a>
 						</li>
-					</ul>
-					<ul class="sidebar-menu">
-						<li>
-							<a href="#">All</a>
+					<li class="all">
+						<a href="{{pathFor 'words' username=username language=string}}">
+							<i class="fa fa-circle-o"></i> All <span class="pull-right">({{wordCount string false}})</span>
+						</a>
+					</li>
+					<li class="treeview active">
+							<a href="#">
+								<i class="fa fa-clock-o"></i> <span>Recent</span>
+								<i class="fa pull-right fa-angle-down"></i>
+							</a>
+							<ul class="treeview-menu" style="display: block;">
+		   						{{#each dayCombinations}}
+		   						{{#if App.wordsDaysAgo this.[0] this.[1]}}
+			   						<li class="recent">
+			   							<a data-date="{{dateDaysAgo this.[0]}}">
+			   								<i class="fa fa-angle-double-right"></i> {{this.[2]}} <span class="pull-right">({{wordsDaysAgoLength this.[0] this.[1]}})</span>
+			   							</a>
+			   						</li>
+			   						{{/if}}
+		   						{{/each}}
+							</ul>
 						</li>
-						<li>
-							<a href="#">Today</a>
+						<li class="treeview active">
+							<a href="#">
+								<i class="fa fa-dot-circle-o"></i> <span>Sets</span>
+								<i class="fa pull-right fa-angle-down"></i>
+							</a>
+							<ul class="treeview-menu" style="display: block;">
+							   {{#each getSets string}}
+		   						<li class="set">
+		   							<a href="{{pathFor 'set' username=username language=language set=name}}">
+		   								<i class="fa fa-angle-double-right"></i> {{name}} <span class="pull-right">({{wordCount ../string _id}})</span>
+		   							</a>
+		   						</li>
+		   						{{/each}}
+							</ul>
 						</li>
-						<li>
-							<a href="#">Yesterday</a>
+						<li class="treeview active">
+							<a href="#">
+								<i class="fa fa-bullseye"></i> <span>Watching</span>
+								<i class="fa pull-right fa-angle-down"></i>
+							</a>
+							<ul class="treeview-menu" style="display: block;">
+							   {{#each getSets string}}
+		   						<li class="watching">
+		   							<a href="{{pathFor 'set' username=username language=language set=name}}">
+		   								<i class="fa fa-angle-double-right"></i> {{name}} <span class="pull-right">({{wordCount ../string _id}})</span>
+		   							</a>
+		   						</li>
+		   						{{/each}}
+		   						<li class="watching">
+		   							<a href="{{pathFor 'set' username=username language=language set=name}}">
+		   								<i class="fa fa-angle-double-right"></i> Find sets
+		   							</a>
+		   						</li>
+							</ul>
 						</li>
-						<li>
-							<a href="#">Yesterday</a>
-						</li>
-						<li>
-							<a href="#">Yesterday</a>
-						</li>
-						<li>
-							<a href="#">Yesterday</a>
-						</li>
-						<li>
-							<a href="#">Yesterday</a>
-						</li>
-						<li>
-							<a href="#">Yesterday</a>
-						</li>
-						<li>
-							<a href="#">Yesterday</a>
-						</li>
-						<li>
-							<a href="#">Yesterday</a>
-						</li>
-						<li>
-							<a href="#">Yesterday</a>
-						</li>
-						<li>
-							<a href="#">Yesterday</a>
-						</li>
-						<li>
-							<a href="#">Yesterday</a>
-						</li>
-						<li>
-							<a href="#">Yesterday</a>
-						</li>
-						<li>
-							<a href="#">Yesterday</a>
-						</li>
-						<li>
-							<a href="#">Yesterday</a>
-						</li>
-						<li>
-							<a href="#">Yesterday</a>
-						</li>
-						<li>
-							<a href="#">Yesterday</a>
-						</li>
-						<li>
-							<a href="#">Yesterday</a>
-						</li>
-						<li>
-							<a href="#">Yesterday</a>
-						</li>
-						<li>
-							<a href="#">Yesterday</a>
-						</li>
-						<li>
-							<a href="#">Yesterday</a>
-						</li>
+
+						<!-- <li class="treeview">
+							<a href="#">
+								<i class="fa fa-bar-chart-o"></i>
+								<span>Stats</span>
+								<i class="fa pull-right fa-angle-down"></i>
+							</a>
+							<ul class="treeview-menu" style="display: block;">
+								<li><a href="#">Coming soon</a></li>
+							</ul>
+						</li> -->
 			<!-- 					<li>
 							<a href="#">This week</a>
 						</li>
 						<li>
 							<a href="#">This month</a>
 						</li> -->
-					</ul>
-					<h4 class="text-center">Sets</h4>	
-					<ul class="sidebar-menu">
-						<li class="all">
-							<a href="{{pathFor 'words' username=username language=string}}">
-								<i class="fa fa-angle-double-right"></i> All <span class="pull-right">({{wordCount string false}})</span>
-							</a>
-						</li>
-						{{#each getSets string}}
-						<li class="set">
-							<a href="{{pathFor 'set' username=username language=language set=name}}">
-								<i class="fa fa-angle-double-right"></i> {{name}} <span class="pull-right">({{wordCount ../string _id}})</span>
-							</a>
-						</li>
-						{{/each}}
 					</ul>
 					{{/with}}
 					<!-- <li class="treeview">

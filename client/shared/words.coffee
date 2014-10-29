@@ -35,6 +35,9 @@ countSelected = ->
 Template.words.rendered = ->
 	Session.set 'selected', []
 
+Template.words.created = () ->
+	Session.set 'dateIds', []
+
 Template.multipleControls.helpers
 	isSelection: () ->
 		Session.get('selected').length > 0

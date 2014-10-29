@@ -1,3 +1,6 @@
+Template.registerHelper 'App', ->
+	App
+
 Template.registerHelper 'Config', ->
 	Config
 
@@ -108,3 +111,37 @@ Template.registerHelper 'lastTested', (_id)->
 	answer = Answers.findOne {word: _id}, {sort: {createdAt: -1}}
 	if typeof answer != 'undefined'
 	    moment(answer.createdAt).fromNow()	
+
+Template.registerHelper 'wordsDaysAgoCount', (ago, gap)->
+	# words = App.wordsDaysAgo(ago, gap)
+	# console.log words
+	# App.wordsDaysAgo(ago, gap).length
+
+	end = new Date()
+	end.setDate(end.getDate() - ago)
+
+	start = new Date()
+	start.setDate(start.getDate() - (ago + gap))
+
+	Words = _.filter Session.get('Words'), (word)->
+		word.createdAt > start && word.createdAt < end
+
+	Words.length
+
+Template.registerHelper 'dateId', (date)->
+	date = moment(date).format('YYYY-MM-DD')
+	# if not _.contains Session.get('dateIds'), date
+	# 	console.log Session.get('dateIds')
+	# 	dateIds = Session.get('dateIds')
+	# 	dateIds.push date
+	# 	Session.set 'dateIds', dateIds
+	# 	return 'DATE'
+	# else
+	# 	'NO DATE'
+	date 
+
+Template.registerHelper 'dateDaysAgo', (ago)->
+	moment().subtract(ago, 'days').format('YYYY-MM-DD')
+
+Template.registerHelper 'wordsDaysAgoLength', (ago,gap)->
+	App.wordsDaysAgo(ago,gap).length

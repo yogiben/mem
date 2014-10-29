@@ -6,28 +6,7 @@
 			<div class="wrapper row-offcanvas row-offcanvas-left">
 				{{> dashboardSidebar }}
 				<aside class="right-side">
-					<section class="content-header">
-						<h1>
-							{{$.Session.get 'title'}}
-							<small>{{$.Session.get 'subtitle'}}</small>
-						</h1>
-                        <!-- {{> testButton class="btn btn-danger"}} -->
-                        <a href="{{pathFor 'test'}}" class="btn btn-danger test-button">Test</a>
-						<!-- <ol class="breadcrumb">
-							<li><a href="/admin/">Dashboard</a></li>
-							{{#if $.Session.get 'language'}}
-							<li><a href="/dashboard/{{$.Session.get 'language'}}/">{{Language.name}}</a></li>
-							{{/if}}
-							
-							{{#if $.Session.equals 'admin_collection_page' 'new'}}
-							<li><a href="/admin/{{admin_collection}}/new">New</a></li>
-							{{/if}}
-
-							{{#if $.Session.equals 'admin_collection_page' 'edit'}}
-							<li><a href="/admin/{{admin_collection}}/edit">Edit</a></li>
-							{{/if}}
-						</ol> -->
-					</section>
+					{{> contentHeader}}
 					<section class="content">
 						{{> yield }}
 					</section>
@@ -37,4 +16,37 @@
 		</div>
 	</div>
 	{{> autoformModals}}
+</template>
+
+<template name="contentHeader">
+	<section class="content-header">
+		<h1>
+			{{$.Session.get 'title'}}
+			<small>{{$.Session.get 'subtitle'}}</small>
+			{{#if Language}}
+			<span class="text-center pull-right">
+				<a class="btn btn-primary" href="{{pathFor 'addL' username=username language=language}}">
+					<span><i class="fa fa-plus"></i> Add words</span>
+				</a>
+	            <a href="{{pathFor 'test'}}" class="btn btn-danger test-button">Test</a>
+			</span>
+			{{/if}}
+		</h1>
+        <!-- {{> testButton class="btn btn-danger"}} -->
+        <!-- <a href="{{pathFor 'test'}}" class="btn btn-danger test-button">Test</a> -->
+		<!-- <ol class="breadcrumb">
+			<li><a href="/admin/">Dashboard</a></li>
+			{{#if $.Session.get 'language'}}
+			<li><a href="/dashboard/{{$.Session.get 'language'}}/">{{Language.name}}</a></li>
+			{{/if}}
+			
+			{{#if $.Session.equals 'admin_collection_page' 'new'}}
+			<li><a href="/admin/{{admin_collection}}/new">New</a></li>
+			{{/if}}
+
+			{{#if $.Session.equals 'admin_collection_page' 'edit'}}
+			<li><a href="/admin/{{admin_collection}}/edit">Edit</a></li>
+			{{/if}}
+		</ol> -->
+	</section>
 </template>

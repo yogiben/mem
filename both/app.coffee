@@ -67,6 +67,16 @@
 				points = array[1] if array[0] == answer.status
 			points
 
+	wordsDaysAgo: (ago,gap)->
+		end = new Date()
+		end.setDate(end.getDate() - ago)
+
+		#+1 is wild guess
+		start = new Date()
+		start.setDate(start.getDate() - (ago + gap))
+
+		Words.find({createdAt: {$gte: start, $lt: end}}).fetch()
+
 	#Parsing functions
 	parseMultiple: (text)->
 		words = text.split("\n")
