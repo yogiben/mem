@@ -14,6 +14,9 @@ Template.registerHelper 'Users', ->
 Template.registerHelper 'Word', ->
 	Session.get 'Word'
 
+Template.registerHelper 'language', ->
+	Session.get 'language'
+
 Template.registerHelper 'Language', ->
 	Session.get 'Language'
 

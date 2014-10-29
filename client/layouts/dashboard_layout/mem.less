@@ -74,8 +74,32 @@ a
 {
 	font-size: 20px;
 
-	&table>tbody>tr>td
+	&>tbody>tr>td, &>tbody>tr>th
 	{
-		padding: 16px 8px;
+		padding: 20px 16px;
+	}
+}
+
+.admin-layout .skin-blue .left-side {
+	background: transparent;
+}
+
+.admin-layout .left-side {
+	position: absolute;
+	width: 300px;
+	top: 0;
+}
+
+
+.admin-layout .right-side {
+	background-color: #f9f9f9;
+	margin-left: 300px;
+}
+
+.btn
+{
+	&.btn-primary
+	{
+		color:white !important;
 	}
 }

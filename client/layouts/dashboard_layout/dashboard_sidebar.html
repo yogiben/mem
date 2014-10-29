@@ -19,6 +19,13 @@
 						<i class="fa fa-dashboard"></i> <span>Dashboard</span>
 					</a>
 				</li>
+				{{#if Language}}
+				<p class="text-center">
+					<a class="btn btn-primary" href="{{pathFor 'addL' username=username language=language}}">
+					    <span><i class="fa fa-plus"></i> Add words</span>
+					</a>
+				</p>
+				{{/if}}
 				{{#with Language}}
 					<li>
 						<a href="{{pathFor 'language' username=username language=string}}">
