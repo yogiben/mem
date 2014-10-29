@@ -1,14 +1,18 @@
 <template name="add">
-	<h4><a class="addType session-set {{#if $.Session.equals 'addType' 'quick'}}active{{/if}}" key="addType" value="quick">Quick Add</a>
-			 / 
-			<a class="addType session-set {{#if $.Session.equals 'addType' 'multiple'}}active{{/if}}" key="addType" value="multiple">Multiple</a></h4>
-			{{#autoForm id="add" collection="Words" type="insert"}}
-			<p class="row">
-				{{> UI.dynamic template=addType}}
-			</p>
-			{{> addSets}}
-			<div class="hidden">{{>afQuickField name="language"}}</div>
-		{{/autoForm}}
+	<h4>
+		<a class="addType session-set {{#if $.Session.equals 'addType' 'quick'}}active{{/if}}" key="addType" value="quick">Quick Add</a>
+		 / 
+		<a class="addType session-set {{#if $.Session.equals 'addType' 'multiple'}}active{{/if}}" key="addType" value="multiple">Multiple</a>
+		/
+		<a class="addType session-set {{#if $.Session.equals 'addType' 'translator'}}active{{/if}}" key="addType" value="translator">Translator</a>
+	</h4>
+	{{#autoForm id="add" collection="Words" type="insert"}}
+	<p class="row">
+		{{> UI.dynamic template=addType}}
+	</p>
+	{{> addSets}}
+	<div class="hidden">{{>afQuickField name="language"}}</div>
+{{/autoForm}}
 </template>
 
 <template name="quick">
@@ -52,6 +56,23 @@
 	<div class="col-md-6">
 		<p>{{getLength multiple}} words</p>
 		<button id="addMultiple" class="btn btn-primary {{#if $not multiple}}disabled{{/if}}">Add</button>
+	</div>
+</template>
+
+<template name="translator">
+	<div class="{{#if Language.transliteration}}col-md-4{{else}}col-md-6{{/if}}">
+		<textarea name="translatorTarget" id="translatorTarget" cols="30" rows="10" class="form-control" placeholder="{{Language.placeholder}}"></textarea>
+	</div>
+	{{#if Language.transliteration}}
+	<div class="col-md-4">
+		<textarea name="translatorTransliteration" id="translatorTransliteration" cols="30" rows="10" class="form-control" placeholder="{{Language.placeholderTransliteration}}"></textarea>
+	</div>
+	{{/if}}
+	<div class="{{#if Language.transliteration}}col-md-4{{else}}col-md-6{{/if}}">
+		<textarea name="translatorSource" id="translatorSource" cols="30" rows="10" class="form-control" placeholder="{{Config.placeholder}}"></textarea>
+	</div>
+	<div class="col-md-6">
+		<button id="addTranslator" style="margin-top:5px;" class="btn btn-primary">Add</button>
 	</div>
 </template>
 
