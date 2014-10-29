@@ -139,7 +139,7 @@ Tracker.autorun ->
 			Sets.findOne({_id:addSet}).language == Session.get('language')
 		Session.set 'languageAddSets', languageAddSets
 
-	Session.setDefault 'multiple', []
+	Session.setDefault 'multipleAdd', []
 	Session.setDefault 'multipleNew',[]
 	Session.setDefault 'multipleDuplicates',[]
 

@@ -39,8 +39,8 @@ Template.registerHelper 'set', ->
 Template.registerHelper 'Set', ->
 	Session.get 'Set'
 
-Template.registerHelper 'multiple', ->
-	Session.get 'multiple'
+Template.registerHelper 'multipleAdd', ->
+	Session.get 'multipleAdd'
 
 Template.registerHelper 'Testing',->
 	Session.get 'Testing'
