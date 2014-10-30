@@ -35,16 +35,35 @@ AutoForm.hooks 'test-form':
         alert 'Not enough words!'
         false
 
+      #Order of Words
       if doc.order == 'random'
         Words = shuffle(Words)
       else if doc.order == 'oldest'
         Words = Words.reverse()
 
       Testing = Words.splice(0,doc.quantity)
-      Session.set 'Testing', Testing
 
       $('.modal-backdrop.fade.in').remove()
+      $('body').removeClass('modal-open')
       Session.set 'testOptions', doc
+
+      testOptions = Session.get 'testOptions'
+
+      randoms = []
+      randoms.push(Random.choice([true,false])) for x in [1..Testing.length]
+
+      #Prompt of words
+      Testing = _.map Testing, (testing, index)->
+        if testOptions.prompt == 'target' or testOptions.prompt == 'source'
+          testing.prompt = testOptions.prompt
+        else if testOptions.prompt == 'both'
+          if randoms[index]
+            testing.prompt = 'target'
+          else
+            testing.prompt = 'source'
+        console.log testing
+        testing
+      Session.set 'Testing', Testing
 
       Router.go 'test'
       false

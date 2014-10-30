@@ -40,26 +40,6 @@ Router.map ->
       else
         Session.set 'Testing', Session.get('TestQueue')
 
-      Testing = Session.get 'Testing'
-
-      testOptions = Session.get 'testOptions'
-
-
-      if Session.get 'testOptions'
-        Testing = _.map Testing, (testing)->
-          if testOptions.prompt == 'target' or testOptions.prompt == 'source'
-            testing.prompt = testOptions.prompt
-          else if testOptions.prompt == 'both'
-            x = 0.5
-            if x > 0.5
-              testing.prompt = 'target'
-            else
-              testing.prompt = 'source'
-          console.log testing
-          testing
-        Session.set 'Testing', Testing
-
-
       Session.set 'test_index', 0
       Session.set('CurrentTestItem',Session.get('Testing')[0])
 
