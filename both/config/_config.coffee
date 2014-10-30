@@ -13,7 +13,7 @@ Config =
 	blog: 'http://benjaminpeterjones.com'
 	about: 'http://benjaminpeterjones.com'
 	placeholder: 'Hello'
-	testLength: 5
+	testLength: 20
 	recentLength: 10
 
 	points: [

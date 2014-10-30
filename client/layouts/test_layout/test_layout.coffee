@@ -52,6 +52,11 @@ Template.testLayout.rendered = () ->
 		$(Reveal.getCurrentSlide()).find('input').focus()
 	), 500
 
+Template.testLayout.destroyed = () ->
+	console.log 'test layout destroyed'
+	Session.set 'Testing', null
+	Session.set 'test_index', 0
+
 Template.registerHelper 'currentFalse', (_id) ->
 		if Session.equals('correct', false) and Session.get('CurrentTestItem')._id == _id
 			console.log _id
