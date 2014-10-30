@@ -137,7 +137,9 @@
 				<div class="modal-body">
 					{{#autoForm type="update" collection="Words" doc=Word}}
 						{{> afQuickField name="target"}}
-						{{> afQuickField name="transliteration"}}
+						{{#if Language.transliteration}}
+							{{> afQuickField name="transliteration"}}
+						{{/if}}
 						{{> afQuickField name="source"}}
 						{{> afQuickField name="notes"}}
 						<button style="display:none;" class="btn btn-primary" id="word-detail-submit" type="submit">Save</button>

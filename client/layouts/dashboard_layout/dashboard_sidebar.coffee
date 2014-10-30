@@ -12,7 +12,7 @@ Template.dashboardSidebar.events
 	'click .recent>a': (e,t) ->
 		id = $(e.currentTarget).data('date')
 		$('html, body').animate({
-		        scrollTop: $('#' + id).offset().top
+		        scrollTop: $('#' + id).offset().top - 50
 		    }, 500)
 
 Template.dashboardSidebar.helpers
