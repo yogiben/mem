@@ -5,6 +5,9 @@ Tracker.autorun ->
 	Meteor.subscribe 'tests'
 	Meteor.subscribe 'answers'
 
+	if Meteor.userId()
+		Meteor.subscribe 'favoritesByUser', Meteor.userId()
+
 	if Session.get 'word'
 		Session.set 'Word',Words.findOne {_id:Session.get('word')}
 

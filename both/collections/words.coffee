@@ -90,4 +90,10 @@ Schemas.Words = new SimpleSchema
 					label: user.emails[0].address
 					value: user._id
 
+	notes:
+		type: String
+		autoform:
+			rows: 5
+		optional: true
+
 Words.attachSchema(Schemas.Words)

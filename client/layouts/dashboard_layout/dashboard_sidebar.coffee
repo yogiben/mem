@@ -6,8 +6,6 @@ Template.dashboardSidebar.rendered = () ->
 			top: 1
 
 	@autorun ->
-		console.log 'autorun'
-		console.log  self.$('.treeview').length
 		self.$('.treeview').tree()
 
 Template.dashboardSidebar.events

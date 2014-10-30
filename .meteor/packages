@@ -19,4 +19,6 @@ raix:handlebar-helpers
 yogiben:autoform-modals
 mrt:moment
 joshowens:accounts-entry@0.9.0
+yogiben:favorites
+aldeed:template-extension
 

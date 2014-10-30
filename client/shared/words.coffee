@@ -53,3 +53,13 @@ Template.multipleControls.events
 		_.each Session.get('selected'), (_id)->
 			Words.update _id, { $addToSet: { sets: set  }} , (e,r)->
 				console.log e,r
+
+Template.wordDetailModal.events
+	'click #word-detail-submit-dummy': () ->
+		$('#word-detail-submit').click()
+		$('#word-detail').modal('hide')
+
+	'click #word-detail-delete': (e,t)->
+		_id = $(e.currentTarget).attr('doc')
+		Words.remove {_id:_id}, ->
+			$('#word-detail').modal('hide')
