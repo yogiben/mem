@@ -13,3 +13,14 @@
 				{label: 'Oldest first', value: 'oldest'}
 				{label: 'Random', value: 'random'}
 			]
+
+	prompt:
+		type: String
+		allowedValues: ['target','source','both']
+		label: 'Prompt'
+		autoform:
+			options:[
+				{label: 'Both', value: 'both'}
+				{label: 'Target -> Source', value: 'target'}
+				{label: 'Source -> Target', value: 'source'}
+			]

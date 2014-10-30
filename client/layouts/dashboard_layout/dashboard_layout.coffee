@@ -55,7 +55,12 @@ Template.dashboardLayout.events
 		refreshSets()
 
 	'click .test-button': (e,t) ->
-		$('input[name="quantity"]').val Session.get('Words').length
+		if Session.get('Words').length < Config.testLength
+			quantity =  Session.get('Words').length
+		else
+			quantity = Config.testLength
+
+		$('input[name="quantity"]').val quantity
 
 
 refreshSets = ->
