@@ -96,10 +96,10 @@ Tracker.autorun ->
 	Session.setDefault 'multiple', false
 
 	if Session.get 'multiple'
-		Session.set 'Multiples', App.getMultiples()
+		Session.set 'Multiples', Test.getMultiples()
 
 	# if Session.get 'response'
-	# 	Session.set 'correct', App.isCorrect Session.get('response'), Session.get('answer')
+	# 	Session.set 'correct', Test.isCorrect Session.get('response'), Session.get('answer')
 
 	Session.setDefault 'correct', ''
 

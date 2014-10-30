@@ -3,7 +3,7 @@
 
 # Template.testOld.events
 # 	'click .next': (e,t) ->
-# 		App.next()
+# 		Test.next()
 # 	'click #test-input-confirm': (e,t)->
 # 		Session.set 'response', Session.get('test_input')
 # 	'keyup #test-input': (e,t)->

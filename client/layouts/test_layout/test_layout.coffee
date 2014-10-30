@@ -7,45 +7,45 @@ Template.testLayout.events
 		key = $(e.currentTarget).attr('key')
 		value = $(e.currentTarget).val()
 		Session.set key, value
-		if App.isCorrect(value, Session.get('answer')) and Session.equals 'correct', ''
+		if Test.isCorrect(value, Session.get('answer')) and Session.equals 'correct', ''
 			console.log 'CORRECT!'
 			Session.set 'correct', true
 
-			App.correct()
+			Test.correct()
 
 			setTimeout (->
-				  App.next()
+				  Test.next()
 				), 100
 	'keydown': (e,t)->
 		if e.which == 13
 			if Reveal.getIndices().v == 0
-				App.multiple()
+				Test.multiple()
 			else if Reveal.getIndices().v == 1
-				App.incorrect()
+				Test.incorrect()
 			else if Reveal.getIndices().v == 2
-				App.next()
+				Test.next()
 
 
 	'click .test-input-skip': (e,t)->
-		App.multiple()
+		Test.multiple()
 	'click .test-multiple-answer': (e,t)->
 		value =  $(e.currentTarget).val()
-		if App.isCorrect value, Session.get('answer')
+		if Test.isCorrect value, Session.get('answer')
 			Session.set('correct',true)
 			console.log 'MULTIPLE CHOICE CORRECT'
 
-			App.correct()
+			Test.correct()
 
 			setTimeout (->
-				  App.next()
+				  Test.next()
 				), 100
 		else
 			
 			setTimeout (->
-				  App.incorrect()
+				  Test.incorrect()
 				), 100
 	'click .accept-incorrect': (e,t)->
-		App.next()
+		Test.next()
 
 Template.testLayout.rendered = () ->
 	setTimeout (->
