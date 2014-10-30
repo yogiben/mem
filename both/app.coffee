@@ -70,10 +70,12 @@
 	wordsDaysAgo: (ago,gap)->
 		end = new Date()
 		end.setDate(end.getDate() - ago)
+		end.setHours(23,59,59,999)
 
 		#+1 is wild guess
 		start = new Date()
-		start.setDate(start.getDate() - (ago + gap))
+		start.setDate(start.getDate() - (ago + gap-1))
+		start.setHours(0,0,0,0)
 
 		Words.find({createdAt: {$gte: start, $lt: end}}).fetch()
 
