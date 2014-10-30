@@ -26,66 +26,68 @@
 					<tr id="{{dateId createdAt}}">
 						{{#if $.Session.get 'checkbox'}}
 						<td class="select-word">
-						  <label>
-						    <input type="checkbox" class="select-word" value="{{_id}}">
-						  </label>
+							<label>
+								<input type="checkbox" class="select-word" value="{{_id}}">
+							</label>
 						</td>
 						{{else}}
 						<td class="make-favorite">
-						  {{> favoriteButton _id=_id}}
+							{{> favoriteButton _id=_id}}
 						</td>
 						<td class="see-notes">
-						  {{#if notes}}
-						  <i class="fa fa-pencil"></i>
-						  {{/if}}
+							{{#if notes}}
+							<a href="#word-detail" data-toggle="modal" doc="{{_id}}" class="session-set" key="word" value="{{_id}}">
+								<i class="fa fa-pencil"></i>
+							</a>
+							{{/if}}
 						</td>
 						{{/if}}
 						<td class="text-right">
-							<a href="#word-detail" data-toggle="modal" doc="{{_id}}" class="session-set" key="word" value="{{_id}}" collection="Words" fields='source,transliteration,target' operation="update" buttonContent="Save" title="Edit Word" buttonClass="btn-success">{{target}}</a>
+							<a href="#word-detail" data-toggle="modal" doc="{{_id}}" class="session-set" key="word" value="{{_id}}">{{target}}</a>
 						</td>
 						{{#if Language.transliteration}}
 						<td class="text-center">
-							<a href="#word-detail" data-toggle="modal" doc="{{_id}}" class="session-set" key="word" value="{{_id}}" collection="Words" fields='source,transliteration,target' operation="update" buttonContent="Save" title="Edit Word" buttonClass="btn-success">{{transliteration}}</a>
+							<a href="#word-detail" data-toggle="modal" doc="{{_id}}" class="session-set" key="word" value="{{_id}}">{{transliteration}}</a>
 						</td>
 						{{/if}}
 						<td class="text-left">
-							<a href="#word-detail" data-toggle="modal" doc="{{_id}}" class="session-set" key="word" value="{{_id}}" collection="Words" fields='source,transliteration,target' operation="update" buttonContent="Save" title="Edit Word" buttonClass="btn-success">{{source}}</a>
+							<a href="#word-detail" data-toggle="modal" doc="{{_id}}" class="session-set" key="word" value="{{_id}}">{{source}}</a>
 						</td>
 						{{#if $.Session.get 'checkbox'}}
 						<td>
 							<div class="dropdown">
-							  <a id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
+								<a id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
 
-							    {{#if sets}}
-						    		{{getLength sets}} sets
-						    		{{else}}
-						    		0 sets
-					    		{{/if}}
-							  <span class="caret"></span>
+									{{#if sets}}
+										{{getLength sets}} sets
+										{{else}}
+										0 sets
+									{{/if}}
+								<span class="caret"></span>
 							</a>
 
 							<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-					    		{{#each sets}}
-						    		{{#with getDoc this 'Sets'}}
-								    <li>
-								    	<a class="toggle-set" word="{{../../_id}}" set="{{_id}}"><i class="fa fa-minus"></i> {{name}}</a>
-								    </li>
-								    {{/with}}
-							    {{/each}}
-							    {{#each allSets}}
-								    {{#if _.contains ../sets this}}
-								    {{else}}
-							    		{{#with getDoc this 'Sets'}}
-									    <li>
-									    	<a class="toggle-set" word="{{../../_id}}" set="{{_id}}"><i class="fa fa-plus"></i> {{name}}</a>
-									    </li>
-									    {{/with}}
+									{{#each sets}}
+										{{#with getDoc this 'Sets'}}
+										<li>
+											<a class="toggle-set" word="{{../../_id}}" set="{{_id}}"><i class="fa fa-minus"></i> {{name}}</a>
+										</li>
+										{{/with}}
+									{{/each}}
+									{{#each allSets}}
+										{{#if _.contains ../sets this}}
+										{{else}}
+											{{#with getDoc this 'Sets'}}
+											<li>
+												<a class="toggle-set" word="{{../../_id}}" set="{{_id}}"><i class="fa fa-plus"></i> {{name}}</a>
+											</li>
+											{{/with}}
 									{{/if}}
-							    {{/each}}
-							  </ul>
+									{{/each}}
+								</ul>
 							</div>
 						</td>
-						<td><a href="#word-detail" data-toggle="modal" doc="{{_id}}" class="btn btn-primary btn-xs session-set" key="word" value="{{_id}}" collection="Words" omitFields="createdAt,owner,langauge,level,mems,history,updatedAt,sets" operation="update" buttonContent="Save" title="Edit Word" buttonClass="btn-success"><i class="fa fa-pencil"></i></a></td>
+						<td><a href="#word-detail" data-toggle="modal" doc="{{_id}}" class="btn btn-primary btn-xs session-set" key="word" value="{{_id}}"><i class="fa fa-pencil"></i></a></td>
 						<td><a href="#afModal" data-toggle="modal" class="btn btn-danger btn-xs" collection="wordList" operation="remove" doc="{{_id}}" title="Delete Word"><i class="fa fa-times"></i></a></td>
 						{{/if}}
 					</tr>
@@ -105,17 +107,17 @@
 <template name="multipleControls">
 	<div id="multiple-controls" class="{{#if isSelection}}selection{{/if}}">
 		<div class="dropdown dropup">
-		  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
-		    Add to set
-		    <span class="caret"></span>
-		  </button>
-		  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-		    {{#each Sets}}
-		    <li><a class="add-set-multiple" set="{{_id}}">{{name}}</a></li>
-		    {{else}}
-		    <li><a>No Sets</a></li>
-		    {{/each}}
-		  </ul>
+			<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+				Add to set
+				<span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+				{{#each Sets}}
+				<li><a class="add-set-multiple" set="{{_id}}">{{name}}</a></li>
+				{{else}}
+				<li><a>No Sets</a></li>
+				{{/each}}
+			</ul>
 		</div>
 		<button class="btn btn-danger" id="delete-multiple">
 			Delete
