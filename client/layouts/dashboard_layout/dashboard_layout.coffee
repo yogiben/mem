@@ -54,6 +54,9 @@ Template.dashboardLayout.events
 		Session.set 'addSets',addSets
 		refreshSets()
 
+	'click .test-button': (e,t) ->
+		$('input[name="quantity"]').val Session.get('Words').length
+
 
 refreshSets = ->
 	addSets = []

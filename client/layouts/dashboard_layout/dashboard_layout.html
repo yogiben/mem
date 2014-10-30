@@ -17,6 +17,7 @@
 	</div>
 	{{> autoformModals}}
 	{{> wordDetailModal}}
+	{{> testModal}}
 </template>
 
 <template name="contentHeader">
@@ -32,7 +33,7 @@
 				<a class="btn btn-primary" href="{{pathFor 'addL' username=username language=language}}">
 					<span><i class="fa fa-plus"></i> Add words</span>
 				</a>
-	            <a href="{{pathFor 'test'}}" class="btn btn-danger test-button">Test</a>
+	            <a data-toggle="modal" href='#test-modal' class="btn btn-danger test-button">Test</a>
 	            {{#if $.Session.get 'checkbox'}}
 	            <a class="btn btn-primary session-set" key="checkbox" value=''><i class="fa fa-pencil"></i></a>
 	            {{else}}
