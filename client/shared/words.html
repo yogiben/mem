@@ -24,7 +24,7 @@
 				<tbody>
 					{{#each wordList}}
 					<tr id="{{dateId createdAt}}">
-						{{#if ../checkbox}}
+						{{#if $.Session.get 'checkbox'}}
 						<td class="select-word">
 						  <label>
 						    <input type="checkbox" class="select-word" value="{{_id}}">
@@ -42,7 +42,7 @@
 						<td class="text-left">
 							<a href="#afModal" data-toggle="modal" doc="{{_id}}" class="session-set" key="word" value="{{_id}}" collection="Words" fields='source,transliteration,target' operation="update" buttonContent="Save" title="Edit Word" buttonClass="btn-success">{{source}}</a>
 						</td>
-						{{#if ../checkbox}}
+						{{#if $.Session.get 'checkbox'}}
 						<td>
 							<div class="dropdown">
 							  <a id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">

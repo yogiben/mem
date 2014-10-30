@@ -34,6 +34,7 @@ countSelected = ->
 
 Template.words.rendered = ->
 	Session.set 'selected', []
+	Session.set 'checkbox' false
 
 Template.words.created = () ->
 	Session.set 'dateIds', []
