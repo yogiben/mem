@@ -106,7 +106,7 @@ Tracker.autorun ->
 	Session.setDefault 'selected', []
 
 	if Session.get 'CurrentTestItem'
-		if Session.equals 'prompt', 'target'
+		if Session.get('CurrentTestItem').prompt == 'target'
 			Session.set 'answer', Session.get('CurrentTestItem').source
 		else
 			Session.set 'answer', Session.get('CurrentTestItem').target

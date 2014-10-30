@@ -44,8 +44,9 @@ AutoForm.hooks 'test-form':
       Session.set 'Testing', Testing
 
       $('.modal-backdrop.fade.in').remove()
-      Router.go 'test'
+      Session.set 'testOptions', doc
 
+      Router.go 'test'
       false
 
 

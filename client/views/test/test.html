@@ -63,7 +63,7 @@
 
 <template name="testPrompt">
 	<h1 class="question {{#if $.Session.equals 'correct' true}}text-success{{/if}}{{#if $.Session.equals 'correct' false}}text-danger{{/if}}">
-	{{#if $.Session.equals 'prompt' 'target'}}
+	{{#if $eq prompt 'target'}}
 	{{target}}
 	{{else}}
 	{{source}}
@@ -72,7 +72,7 @@
 </template>
 
 <template name="testInput">
-	<input type="text" name="source" class="form-control test-input session-set" key="test_input" placeholder="{{#if $.Session.equals 'prompt' 'target'}}Type the English{{else}}Type the TARGET LANGUAGE{{/if}}">
+	<input type="text" name="source" class="form-control test-input session-set" key="test_input" placeholder="{{#if $eq prompt 'target'}}Type the English{{else}}Type the {{Language.name}}{{/if}}">
    <div class="test-buttons">
    			<a class="test-input-skip">
    				{{#if $.Session.get 'test_input'}}
@@ -87,8 +87,8 @@
 <template name="testMultipleChoice">
 	<p class="text-center">
 		{{#each $.Session.get 'Multiples'}}
-			<button class="btn btn-default test-multiple-answer" value="{{#if $.Session.equals 'prompt' 'target'}}{{source}}{{else}}{{target}}{{/if}}">
-			{{#if $.Session.equals 'prompt' 'target'}}
+			<button class="btn btn-default test-multiple-answer" value="{{#if $eq prompt 'target'}}{{source}}{{else}}{{target}}{{/if}}">
+			{{#if $eq prompt 'target'}}
 			{{source}}
 			{{else}}
 			{{target}}
