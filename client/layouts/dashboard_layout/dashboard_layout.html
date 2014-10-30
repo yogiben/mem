@@ -29,6 +29,11 @@
 					<span><i class="fa fa-plus"></i> Add words</span>
 				</a>
 	            <a href="{{pathFor 'test'}}" class="btn btn-danger test-button">Test</a>
+	            {{#if $.Session.get 'checkbox'}}
+	            <a class="btn btn-primary session-set" key="checkbox" value=''><i class="fa fa-pencil"></i></a>
+	            {{else}}
+	            <a class="btn btn-default session-set" key="checkbox" value=true><i class="fa fa-pencil"></i></a>
+	            {{/if}}
 			</span>
 			{{/if}}
 		</h1>
