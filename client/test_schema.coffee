@@ -9,9 +9,9 @@
 		allowedValues: ['newest','oldest','random']
 		autoform:
 			options:[
+				{label: 'Random', value: 'random'}
 				{label: 'Newest first', value: 'newest'}
 				{label: 'Oldest first', value: 'oldest'}
-				{label: 'Random', value: 'random'}
 			]
 
 	prompt:
