@@ -33,6 +33,7 @@ Router.map ->
     # Session.set('CurrentTestItem',Session.get('Testing')[0])
     action: ->
       if Session.get 'Testing'
+        #testing has been set
         true
       else if Session.get('TestQueue').length > Config.testLength
         Session.set 'Testing', Session.get('TestQueue').splice(0,Config.testLength) 

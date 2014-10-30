@@ -1,9 +1,11 @@
 Template.test.rendered = () ->
-	Reveal.initialize
+	callback = 	Reveal.initialize
 		loop: false
 		controls: false
 		progress: true
 		autoSlide: 0
+
+	setTimeout callback, 300
 
 Template.test.events
 	'change .test-input': (e,t) ->
