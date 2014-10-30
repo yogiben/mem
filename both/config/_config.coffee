@@ -1,5 +1,5 @@
 Config =
-	name: 'Mem Mem'
+	name: 'Vocab.li'
 	title: 'Manage your vocabulary'
 	subtitle: 'Organize and record your foreign language vocab'
 	logo: ->
