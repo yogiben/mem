@@ -24,19 +24,23 @@
 		$(Reveal.getCurrentSlide()).find('input').focus()
 		
 	getMultiples: ->
+		currentTestItem = Session.get('CurrentTestItem')
 		Multiples = []
-		Multiples.push Session.get('CurrentTestItem')
+		Multiples.push currentTestItem
+
 		if Session.get('Words').length >= 5
 			i = 0
 			while i < 5
-			  Multiples.push Words.find( {_id: { $not: Session.get('CurrentTestItem')._id}} ).fetch()[i]
-			  i++
-		else
-			i = 0
-			while i < 5
-			  Multiples.push Words.find({_id: { $not: Session.get('CurrentTestItem')._id}}).fetch()[i]
-			  i++
-		Multiples
+				word = Random.choice(Session.get('Words'))
+				if word._id != currentTestItem._id
+					Multiples.push word
+					i++
+		# else
+		# 	i = 0
+		# 	while i < 5
+		# 		Multiples.push Words.find({_id: { $not: Session.get('CurrentTestItem')._id}}).fetch()[i]
+		# 		i++
+		Utils.shuffle(Multiples)
 	isCorrect: (response,answer)->
 		response = response.toLowerCase()
 		answer = answer.toLowerCase()
