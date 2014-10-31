@@ -39,10 +39,10 @@
 							</a>
 							<ul class="treeview-menu" style="display: block;">
 		   						{{#each dayCombinations}}
-		   						{{#if App.wordsDaysAgo this.[0] this.[1]}}
+		   						{{#if App.wordsByDate this.[0] this.[1]}}
 			   						<li class="recent">
-			   							<a data-date="{{dateDaysAgo this.[0]}}">
-			   								<i class="fa fa-angle-double-right"></i> {{this.[2]}} <span class="pull-right">({{wordsDaysAgoLength this.[0] this.[1]}})</span>
+			   							<a href="{{pathFor 'time' username=username language=language start=this.[0] end=this.[1]}}">
+			   								<i class="fa fa-angle-double-right"></i> {{this.[2]}} <span class="pull-right">({{wordsByDateLength this.[0] this.[1]}})</span>
 			   							</a>
 			   						</li>
 			   						{{/if}}

@@ -146,5 +146,13 @@ Template.registerHelper 'dateDaysAgo', (ago)->
 Template.registerHelper 'wordsDaysAgoLength', (ago,gap)->
 	App.wordsDaysAgo(ago,gap).length
 
+Template.registerHelper 'wordsByDate', (start,end)->
+	App.wordsByDate(start,end)
+
+Template.registerHelper 'wordsByDateLength', (start,end)->
+	App.wordsByDate(start,end).length
+
+
+
 Template.registerHelper 'testSchema', ->
 	testSchema
