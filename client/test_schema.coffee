@@ -1,7 +1,8 @@
 @testSchema = new SimpleSchema
 	quantity:
 		type:Number
-		label: 'Number of words'
+		label: ->
+			'Number of words (max ' + Session.get('Words').length + ')'
 
 	order:
 		type: String
