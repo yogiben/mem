@@ -104,7 +104,7 @@ Router.map ->
 
   @route "set",
     path: "/:username/:language/:set"
-    template: 'languageAll'
+    template: 'set'
     layoutTemplate: "dashboardLayout"
     action: ->
       Session.set 'language', @params.language
