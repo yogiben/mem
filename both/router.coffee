@@ -79,6 +79,7 @@ Router.map ->
       Session.set 'title','Dashboard'
       Session.set 'subtitle','Learn learn learn'
       Session.set 'language',null
+      Session.set 'set', null
       @render()
       
   @route "language",
@@ -88,6 +89,7 @@ Router.map ->
       Session.set 'language', @params.language
       Session.set 'title', Languages[@params.language].name
       Session.set 'subtitle', Session.get('Words').length + ' words'
+      Session.set 'set', null
       Session.set 'set', null
       @render()
 
@@ -106,8 +108,6 @@ Router.map ->
     path: "/:username/:language/t/:start/:end"
     template: 'time'
     layoutTemplate: "dashboardLayout"
-    data: ->
-      WordsByDate: App.wordsByDate @params.start, @params.end
     action: ->
       Session.set 'language', @params.language
       if @params.start == @params.end
@@ -116,6 +116,7 @@ Router.map ->
         Session.set 'title', moment(@params.start).format('Do MMM') + ' - ' + moment(@params.end).format('Do MMM')
       Session.set 'subtitle', App.wordsByDate(@params.start, @params.end).length + ' words'
       Session.set 'set', null
+      Session.set 'time', [@params.start, @params.end]
       @render()
 
   @route "set",
@@ -128,6 +129,7 @@ Router.map ->
       Session.set 'subtitle', Session.get('Words').length + ' words'
       Session.set 'set', @params.set
       Session.set 'addSets', [Sets.findOne({name: @params.set})._id]
+      Session.set 'time', null
       @render()
 
 

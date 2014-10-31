@@ -56,6 +56,17 @@ Tracker.autorun ->
 				{sets: { $all : [ Session.get('Set')._id ] }}
 			]
 		Session.set 'filter', filter
+	else if Session.get('language') and Session.get('time')
+		console.log 'time'
+		start = new Date(Session.get('time')[0])
+		end = new Date(Session.get('time')[1])
+		end.setHours(23,59,59,999)
+		filter =
+			$and : [
+				{language: Session.get 'language'}
+				{createdAt: {$gte: start, $lt: end}}
+			]
+		Session.set 'filter', filter
 	else if Session.get 'language'
 		filter =
 			language: Session.get 'language'
