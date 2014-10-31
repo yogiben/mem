@@ -102,6 +102,7 @@ Router.map ->
       Session.set 'title', Languages[@params.language].name
       Session.set 'subtitle', Session.get('Words').length + ' words'
       Session.set 'set', null
+      Session.set 'time', null
       @render()
 
   @route "time",

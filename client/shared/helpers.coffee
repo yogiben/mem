@@ -152,7 +152,9 @@ Template.registerHelper 'wordsByDate', (start,end)->
 Template.registerHelper 'wordsByDateLength', (start,end)->
 	App.wordsByDate(start,end).length
 
-
-
 Template.registerHelper 'testSchema', ->
 	testSchema
+
+Template.registerHelper 'lengthOfSession', (key)->
+	if Session.get(key)
+		Session.get(key).length

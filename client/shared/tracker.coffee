@@ -10,6 +10,18 @@ Tracker.autorun ->
 
 	if Session.get 'word'
 		Session.set 'Word',Words.findOne {_id:Session.get('word')}
+		if Answers.find({word:Session.get('word')}).fetch().length
+			Session.set 'Answers', Answers.find({word:Session.get('word')}).fetch()
+			Session.set 'Answers_String', Answers.find($and: [{word:Session.get('word')},{status:'string'}]).fetch()
+			Session.set 'Answers_Multiple', Answers.find($and: [{word:Session.get('word')},{status:'multiple'}]).fetch()
+			Session.set 'Answers_Incorrect', Answers.find($and: [{word:Session.get('word')},{status:'incorrect'}]).fetch()
+
+		else
+			Session.set 'Answers', null
+			Session.set 'Answers_String', null
+			Session.set 'Answers_Multiple', null
+			Session.set 'Answers_Incorrect', null
+
 
 	if Session.get 'language'
 		Session.set 'Language', Languages[Session.get 'language']
@@ -57,7 +69,6 @@ Tracker.autorun ->
 			]
 		Session.set 'filter', filter
 	else if Session.get('language') and Session.get('time')
-		console.log 'time'
 		start = new Date(Session.get('time')[0])
 		end = new Date(Session.get('time')[1])
 		end.setHours(23,59,59,999)
