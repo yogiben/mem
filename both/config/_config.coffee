@@ -22,6 +22,8 @@ Config =
 			[ 'incorrect',  0 ]
 		]
 
+	
+
 
 if Meteor.isClient
 	window.Config = Config
