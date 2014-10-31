@@ -111,6 +111,7 @@ Router.map ->
       Session.set 'title', @params.set
       Session.set 'subtitle', Session.get('Words').length + ' words'
       Session.set 'set', @params.set
+      Session.set 'addSets', [Sets.findOne({name: @params.set})._id]
       @render()
 
 
