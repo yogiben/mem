@@ -102,6 +102,22 @@ Router.map ->
       Session.set 'set', null
       @render()
 
+  @route "time",
+    path: "/:username/:language/t/:start/:end"
+    template: 'time'
+    layoutTemplate: "dashboardLayout"
+    data: ->
+      WordsByDate: App.wordsByDate @params.start, @params.end
+    action: ->
+      Session.set 'language', @params.language
+      if @params.start == @params.end
+        Session.set 'title', moment(@params.start).format('Do MMM')
+      else
+        Session.set 'title', moment(@params.start).format('Do MMM') + ' - ' + moment(@params.end).format('Do MMM')
+      Session.set 'subtitle', App.wordsByDate(@params.start, @params.end).length + ' words'
+      Session.set 'set', null
+      @render()
+
   @route "set",
     path: "/:username/:language/:set"
     template: 'set'

@@ -25,6 +25,13 @@
 				points = array[1] if array[0] == answer.status
 			points
 
+	wordsByDate: (start,end)->
+		start = new Date(start)
+		end = new Date(end)
+		end.setHours(23,59,59,999)
+
+		Words.find({$and: [{language: Session.get('language')},{createdAt: {$gte: start, $lt: end}}]}).fetch()
+
 	wordsDaysAgo: (ago,gap)->
 		end = new Date()
 		end.setDate(end.getDate() - ago)
@@ -35,7 +42,8 @@
 		start.setDate(start.getDate() - (ago + gap-1))
 		start.setHours(0,0,0,0)
 
-		Words.find({createdAt: {$gte: start, $lt: end}}).fetch()
+		# Words.find({createdAt: {$gte: start, $lt: end}}).fetch()
+		Words.find({$and: [{language: Session.get('language')},{createdAt: {$gte: start, $lt: end}}]}).fetch()
 
 	#Parsing functions
 	parseMultiple: (text)->
