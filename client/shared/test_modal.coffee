@@ -37,7 +37,7 @@ AutoForm.hooks 'test-form':
       Testing = _.map Testing, (testing, index)->
         if testOptions.prompt == 'target' or testOptions.prompt == 'source'
           testing.prompt = testOptions.prompt
-        else if testOptions.prompt == 'both'
+        else if testOptions.prompt == 'random'
           if Random.choice([true,false])
             testing.prompt = 'target'
           else
