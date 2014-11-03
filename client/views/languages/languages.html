@@ -1,23 +1,25 @@
 <template name="languages">
 	<div class="template-languages">
-		<div class="row">
-			{{#each toArray Languages}}
-			  <div class="col-md-2 col-sm-4 col-xs-6">
-			  	<div class="checkbox">
-			  	  <label>
-			  	    <input type="checkbox" name="{{name}}" checked="{{#if _.contains learning string}}true{{/if}}"> {{name}}
-			  	    <!-- <input type="checkbox" name="{{name}}" checked=""> {{name}} -->
-			  	  </label>
-			  	</div>
-			  </div>
-			{{/each}}
-			<div class="col-md-12">
-				<hr/>
-				<p>
-					<a href="{{pathFor 'home'}}" class="btn btn-default">Cancel</a>
-					<a id="confirm" class="btn btn-primary {{#if $.Session.equals 'learning_selected' 0}}disabled{{/if}}">Confirm</a>
-				</p>
+		<section class="content">
+			<div class="row">
+				{{#each toArray Languages}}
+				  <div class="col-md-2 col-sm-4 col-xs-6">
+				  	<div class="checkbox">
+				  	  <label>
+				  	    <input type="checkbox" name="{{name}}" checked="{{#if _.contains learning string}}true{{/if}}"> {{name}}
+				  	    <!-- <input type="checkbox" name="{{name}}" checked=""> {{name}} -->
+				  	  </label>
+				  	</div>
+				  </div>
+				{{/each}}
+				<div class="col-md-12">
+					<hr/>
+					<p>
+						<a href="{{pathFor 'home'}}" class="btn btn-default">Cancel</a>
+						<a id="confirm" class="btn btn-primary {{#if $.Session.equals 'learning_selected' 0}}disabled{{/if}}">Confirm</a>
+					</p>
+				</div>
 			</div>
-		</div>
+		</section>
 	</div>
 </template>
