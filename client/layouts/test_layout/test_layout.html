@@ -1,12 +1,15 @@
 <template name="testLayout">
-	<div id="test-index">{{testCount}} / {{getLength Testing}}</div>
-	<div id="test-score">{{points CurrentTestItem._id}}</div>
-	<div id="test-exit">
+	<div id="test-index" class="test-corner">{{testCount}} / {{getLength Testing}}</div>
+	<div id="test-score" class="test-corner">{{points CurrentTestItem._id}}</div>
+	<div id="test-exit" class="test-corner">
 		{{#if language}}
 		<a href="{{pathFor 'language' username=username language=language}}"><i class="fa fa-times"></i></a>
 		{{else}}
 		<a href="{{pathFor 'dashboard' username=username}}"><i class="fa fa-times"></i></a>
 		{{/if}}
+	</div>
+	<div id="test-word-detail" class="test-corner">
+		<a href="#word-detail" data-toggle="modal" class="session-set" key="word" value="{{CurrentTestItem._id}}"><i class="fa fa-ellipsis-v"></i></a>
 	</div>
 	{{>yield}}
 	{{> wordDetailModal}}
