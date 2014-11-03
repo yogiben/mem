@@ -22,6 +22,8 @@
 		Session.set 'test_index', Session.get('test_index') + 1
 		Reveal.right()
 		$(Reveal.getCurrentSlide()).find('input').focus()
+
+		@speakPrompt()
 		
 	getMultiples: ->
 		currentTestItem = Session.get('CurrentTestItem')
@@ -50,3 +52,14 @@
 		Session.set 'multiple', true
 		Session.set 'Multiples', @getMultiples()
 		Reveal.down()
+
+	speakPrompt: ->
+		CurrentTestItem = Session.get('Testing')[Session.get('test_index')]
+		if CurrentTestItem.promptType == 'both' || CurrentTestItem.promptType == 'voice'
+			if CurrentTestItem.prompt == 'target'
+				tl = Languages[CurrentTestItem.language].code
+				text = CurrentTestItem.target
+			else
+				tl = 'en'
+				text = CurrentTestItem.source
+			tts.speak text, tl

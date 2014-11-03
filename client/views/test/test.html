@@ -64,9 +64,9 @@
 <template name="testPrompt">
 	<h1 class="question {{#if $.Session.equals 'correct' true}}text-success{{/if}}{{#if $.Session.equals 'correct' false}}text-danger{{/if}}">
 	{{#if $eq prompt 'target'}}
-	{{target}}
+		{{target}}
 	{{else}}
-	{{source}}
+		{{source}}
 	{{/if}}
 	</h1>
 </template>
@@ -87,8 +87,8 @@
 <template name="testMultipleChoice">
 	<p class="text-center">
 		{{#each $.Session.get 'Multiples'}}
-			<button class="btn btn-default btn-lg test-multiple-answer" value="{{#if $eq prompt 'target'}}{{source}}{{else}}{{target}}{{/if}}">
-			{{#if $eq prompt 'target'}}
+			<button class="btn btn-default btn-lg test-multiple-answer" value="{{#if $.Session.equals 'prompt' 'target'}}{{source}}{{else}}{{target}}{{/if}}">
+			{{#if $.Session.equals 'prompt' 'target'}}
 			{{source}}
 			{{else}}
 			{{target}}

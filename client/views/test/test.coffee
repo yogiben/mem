@@ -5,6 +5,7 @@ Template.test.rendered = () ->
 		progress: true
 		autoSlide: 0
 
+	Test.speakPrompt()
 	setTimeout callback, 300
 
 Template.test.events
