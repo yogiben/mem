@@ -26,6 +26,12 @@ Template.words.events
 			$('input.select-word').prop('checked', true);
 		countSelected()
 
+	'click [href="#word-detail"]': (e,t)->
+		word = Words.findOne $(e.currentTarget).attr('doc')
+		text = word.target
+		tl = Languages[word.language].code
+		tts.speak(text,tl)
+
 countSelected = ->
 	selected = []
 	_.each $('input.select-word:checked'), (input)->

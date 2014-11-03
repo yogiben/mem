@@ -26,7 +26,7 @@
 	chinese:
 		name: 'Chinese'
 		string: 'chinese'
-		code: 'es'
+		code: 'zh-CN'
 		targetName: '中文'
 		transliteration: true
 		placeholder: '你好'
