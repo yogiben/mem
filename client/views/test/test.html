@@ -63,10 +63,14 @@
 
 <template name="testPrompt">
 	<h1 class="question {{#if $.Session.equals 'correct' true}}text-success{{/if}}{{#if $.Session.equals 'correct' false}}text-danger{{/if}}">
-	{{#if $eq prompt 'target'}}
-		{{target}}
+	{{#if $eq promptType 'voice'}}
+		<i class="fa fa-volume-up fa-5x speak-prompt"></i>
 	{{else}}
-		{{source}}
+		{{#if $eq prompt 'target'}}
+			{{target}}
+		{{else}}
+			{{source}}
+		{{/if}}
 	{{/if}}
 	</h1>
 </template>

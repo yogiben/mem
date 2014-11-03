@@ -47,6 +47,9 @@ Template.testLayout.events
 	'click .accept-incorrect': (e,t)->
 		Test.next()
 
+	'click .speak-prompt': (e,t)->
+		Test.speakPrompt()
+
 Template.testLayout.rendered = () ->
 	setTimeout (->
 		$(Reveal.getCurrentSlide()).find('input').focus()
