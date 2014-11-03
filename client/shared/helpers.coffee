@@ -88,6 +88,8 @@ Template.registerHelper 'allSets', ->
 	Session.get 'sets'
 
 Template.registerHelper 'currentTesting', ->
+	console.log 'Current Testing'
+	console.log Session.get ('currentTesting')
 	Session.get 'currentTesting'
 
 Template.registerHelper 'wordCount', (language,set) ->

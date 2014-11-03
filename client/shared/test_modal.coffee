@@ -30,11 +30,8 @@ AutoForm.hooks 'test-form':
 
       testOptions = Session.get 'testOptions'
 
-      randoms = []
-      randoms.push(Random.choice([true,false])) for x in [1..Testing.length]
-
       #Prompt of words
-      Testing = _.map Testing, (testing, index)->
+      Testing = _.map Testing, (testing)->
         if testOptions.prompt == 'target' or testOptions.prompt == 'source'
           testing.prompt = testOptions.prompt
         else if testOptions.prompt == 'random'
@@ -44,6 +41,16 @@ AutoForm.hooks 'test-form':
             testing.prompt = 'source'
         console.log testing
         testing
+
+      #Type of prompt
+      Testing = _.map Testing, (testing)->
+        if testOptions.promptType == 'random'
+          testing.promptType = Random.choice(['text','voice'])
+        else
+          testing.promptType = testOptions.promptType
+        console.log testing
+        testing
+
       Session.set 'Testing', Testing
 
       Router.go 'test'

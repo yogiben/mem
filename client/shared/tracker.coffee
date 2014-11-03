@@ -112,7 +112,17 @@ Tracker.autorun ->
 	Session.setDefault 'test_index', 0
 
 	if Session.get('Testing')
-		Session.set('CurrentTestItem',Session.get('Testing')[Session.get('test_index')])
+		CurrentTestItem = Session.get('Testing')[Session.get('test_index')]
+		Session.set('CurrentTestItem',CurrentTestItem)
+		if CurrentTestItem.promptType == 'both' || CurrentTestItem.promptType == 'voice'
+			text = CurrentTestItem.source
+			if CurrentTestItem.prompt == 'target'
+				tl = Languages[CurrentTestItem.language].code
+			else
+				tl = 'en'
+			tts.speak text, tl
+	else
+		Session.set 'CurrentTestItem', null
 
 	Session.setDefault 'prompt', 'target'
 	Session.setDefault 'multiple', false
