@@ -16,8 +16,14 @@
                         </a>
                         <ul class="dropdown-menu">
                             {{#each Learning}}
-                                <li><a href="{{pathFor 'language' username=username language=string}}">{{name}}</a></li>
+                            <li><a href="{{pathFor 'language' username=username language=string}}">{{name}}</a></li>
                             {{/each}}
+                            <li class="divider"></li>
+                            <li class="">
+                                <a href="{{pathFor 'languages'}}">
+                                    Languages
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li class="dropdown">
@@ -25,16 +31,6 @@
                             <span>{{niceName}}<i class="caret"></i></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li class="">
-                                <a href="{{pathFor 'languages'}}">
-                                    Languages
-                                </a>
-                            </li>
-                            <li class="">
-                                <a href="{{pathFor 'profile'}}">
-                                    Profile
-                                </a>
-                            </li>
                             <li class="">
                                 <a href="/sign-out" class="btn-sign-out">Sign out
                                 </a>
