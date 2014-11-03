@@ -3,10 +3,16 @@ Template.dashboardSidebar.rendered = () ->
 
 	$('section.sidebar').affix
 		offset:
-			top: 1
+			top: 0
 
 	@autorun ->
 		self.$('.treeview').tree()
+
+Template.dashboardSidebar.events
+	'click #hidden-logo': (e,t) ->
+		$('html, body').animate({
+	        scrollTop: $('body').offset().top
+	    }, 500)
 
 Template.dashboardSidebar.helpers
 	dayCombinations: () ->
