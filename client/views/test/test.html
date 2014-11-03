@@ -30,7 +30,7 @@
 			{{/each}}
 			<section class="test-end">
 				<h3>End of test</h3>
-				<table>
+				<!-- <table>
 						<tbody>
 						{{#each $.Session.get 'Testing'}}
 							<tr>
@@ -41,8 +41,11 @@
 							</tr>
 						{{/each}}
 						</tbody>
-					</table>
-				<p><a id="test-home" href="{{pathFor 'dashboard' username=username}}">Go home</a></p>
+					</table> -->
+				<p>
+					<a id="test-home" href="{{pathFor 'dashboard' username=username}}">Go home</a>
+					<a id="test-results" href="{{pathFor 'dashboard' username=username}}">See results</a>
+				</p>
 			</section>			
 	    </div>
 	</div>
