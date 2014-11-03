@@ -62,9 +62,9 @@
 </template>
 
 <template name="testPrompt">
-	<h1 class="question {{#if $.Session.equals 'correct' true}}text-success{{/if}}{{#if $.Session.equals 'correct' false}}text-danger{{/if}}">
+	<h1 class="question {{#if $.Session.equals 'correct' true}}text-success{{/if}}{{#if $.Session.equals 'correct' false}}text-danger{{/if}} speak-prompt">
 	{{#if $eq promptType 'voice'}}
-		<i class="fa fa-volume-up fa-5x speak-prompt"></i>
+		<i class="fa fa-volume-up fa-5x"></i>
 	{{else}}
 		{{#if $eq prompt 'target'}}
 			{{target}}
@@ -91,8 +91,8 @@
 <template name="testMultipleChoice">
 	<p class="text-center">
 		{{#each $.Session.get 'Multiples'}}
-			<button class="btn btn-default btn-lg test-multiple-answer" value="{{#if $.Session.equals 'prompt' 'target'}}{{source}}{{else}}{{target}}{{/if}}">
-			{{#if $.Session.equals 'prompt' 'target'}}
+			<button class="btn btn-default btn-lg test-multiple-answer" value="{{#if $eq CurrentTestItem.prompt 'target'}}{{source}}{{else}}{{target}}{{/if}}">
+			{{#if $eq CurrentTestItem.prompt 'target'}}
 			{{source}}
 			{{else}}
 			{{target}}
