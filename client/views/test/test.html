@@ -1,13 +1,4 @@
 <template name="test">
-	<div id="test-index">{{testCount}} / {{getLength Testing}}</div>
-	<div id="test-score">{{points CurrentTestItem._id}}</div>
-	<div id="test-exit">
-		{{#if language}}
-		<a href="{{pathFor 'language' username=username language=language}}"><i class="fa fa-times"></i></a>
-		{{else}}
-		<a href="{{pathFor 'dashboard' username=username}}"><i class="fa fa-times"></i></a>
-		{{/if}}
-	</div>
 	<div class="reveal">
 	    <div class="slides">
 			{{#each $.Session.get 'Testing'}}

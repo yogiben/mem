@@ -64,3 +64,7 @@ Template.registerHelper 'currentFalse', (_id) ->
 		if Session.equals('correct', false) and Session.get('CurrentTestItem')._id == _id
 			console.log _id
 			true
+
+Template.testLayout.helpers
+	testCount: () ->
+		Session.get('test_index') + 1
