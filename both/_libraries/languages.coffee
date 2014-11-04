@@ -23,6 +23,31 @@
 		transliteration: false
 		placeholder: 'Buongiorno'
 		placeholderMultiple: 'Buongiorno - Hello'
+	portuguese:
+		name: 'Portuguese'
+		string: 'portuguese'
+		code: 'pt'
+		targetName: 'Português'
+		transliteration: false
+		placeholder: 'Olá'
+		placeholderMultiple: 'Olá - hello'
+	German:
+		name: 'German'
+		string: 'german'
+		code: 'de'
+		targetName: 'Deutsch'
+		transliteration: false
+		placeholder: 'Hallo'
+		placeholderMultiple: 'Hallo - hello'
+	Japanese:
+		name: 'Japanese'
+		string: 'Japanese'
+		code: 'ja'
+		targetName: '日本の'
+		transliteration: true
+		placeholder: 'こんにちは'
+		placeholderMultiple: 'こんにちは - Kon\'nichiwa hello'
+		placeholderTransliteration: 'Kon\'nichiwa'
 	chinese:
 		name: 'Chinese'
 		string: 'chinese'

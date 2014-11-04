@@ -80,6 +80,7 @@ Router.map ->
       Session.set 'subtitle','Learn learn learn'
       Session.set 'language',null
       Session.set 'set', null
+
       @render()
       
   @route "language",
