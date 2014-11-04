@@ -1,9 +1,11 @@
 <template name="manageSets">
 	<div class="template-sets">
 		<section class="content">
+		<a data-toggle="modal" href='#afModal' class="btn btn-default" collection="Sets" fields="name,language" operation="insert" buttonContent="Create set" title="Add a new set"><i class="fa fa-plus"></i> Add set</a>
 			{{#each Sets}}
 			<a href="#afModal" data-toggle="modal" fields="name" class="btn btn-default" collection="Sets" operation="update" doc="{{_id}}">{{name}}</a>
 			{{else}}
+			<hr/>
 			<p>Oranize your vocab into sets like <strong>countries</strong> or <strong>food</strong>.</p>
 			{{/each}}
 		</section>

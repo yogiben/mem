@@ -146,6 +146,13 @@ Router.map ->
       Session.set 'time', null
       @render()
 
-
 Router.waitOn ->
   Meteor.subscribe 'user'
+
+clearFilter = ->
+  Session.set 'time',null
+  Session.set 'language', null
+  Session.set 'set', null
+  @next()
+
+Router.onBeforeAction clearFilter

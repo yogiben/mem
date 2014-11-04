@@ -33,10 +33,6 @@ Template.dashboardSidebar.helpers
 			combi
 
 	hasRecent: ->
-		combis = _.map combis, (combi)->
-			ago = combi[0]
-			gap = combi[1]
-			combi[0] = moment().subtract(ago + gap,'days').format('YYYY-MM-DD')
-			combi[1] = moment().subtract(ago,'days').format('YYYY-MM-DD')
-		if typeof combis[combis.length] != 'undefined'
-			App.wordsByDate combis[0][0], combis[combis.length][1]
+		ago = 0
+		gap = 31
+		App.wordsByDate moment().subtract(ago + gap,'days').format('YYYY-MM-DD'), moment().subtract(ago,'days').format('YYYY-MM-DD')
