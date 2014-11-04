@@ -48,7 +48,14 @@ Tracker.autorun ->
 		Session.set 'Learning', _.map Session.get('learning'), (string)->
 			Languages[string]
 
-	Session.set 'Words', Words.find( Session.get('filter') , {sort : {createdAt:-1}} ).fetch()
+	if Session.get('favorite_filter')
+		FavoriteWords = Words.find( Session.get('filter') , {sort : {createdAt:-1}} ).fetch()
+		FavoriteWords = _.filter FavoriteWords, (word)->
+			Favorites.findOne doc: word._id
+		Session.set 'Words', FavoriteWords
+	else
+		Session.set 'Words', Words.find( Session.get('filter') , {sort : {createdAt:-1}} ).fetch()
+
 	Session.set 'Sets', Sets.find( Session.get('languageFilter') ).fetch()
 	Session.set 'Tests', Tests.find( Session.get('languageFilter') ).fetch()
 
