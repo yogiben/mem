@@ -93,7 +93,7 @@
 				</tbody>
 			</table>
 			{{else}}
-			<p class="text-center">No words yet</p>
+				{{> noWords}}
 			{{/if}}
 	{{#if $.Session.get 'checkbox'}}
 	{{> multipleControls}}
@@ -119,4 +119,15 @@
 			Delete
 		</button>
 	</div>
+</template>
+
+<template name="noWords">
+	<p class="text-center" style="margin-top:20px;">
+		No words yet
+		{{#if $.Session.get 'favorite_filter'}}
+		<br/>
+		<br/>
+		<small>(the favorite filter is on)</small>
+		{{/if}}
+	</p>
 </template>

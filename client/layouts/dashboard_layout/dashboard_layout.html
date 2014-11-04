@@ -26,19 +26,28 @@
 			{{$.Session.get 'title'}}
 			<small>{{$.Session.get 'subtitle'}}</small>
 			</a>
-			{{#if Words}}
 			<span class="text-center pull-right">
 				<!-- <a class="btn btn-primary" href="{{pathFor 'addL' username=username language=language}}">
 					<span><i class="fa fa-plus"></i> Add words</span>
 				</a> -->
+				{{#if Words}}
 	            <a data-toggle="modal" href='#test-modal' class="btn btn-danger test-button">Test</a>
-	            {{#if $.Session.get 'checkbox'}}
-	            <a class="btn btn-primary session-set" key="checkbox" value=''><i class="fa fa-pencil"></i></a>
+		        {{/if}}
+
+	            {{#if $.Session.get 'favorite_filter'}}
+	            <a class="btn btn-default session-set" key="favorite_filter" value=''><i class="fa fa-star"></i></a>
 	            {{else}}
-	            <a class="btn btn-default session-set" key="checkbox" value=true><i class="fa fa-pencil"></i></a>
+	            <a class="btn btn-default session-set" key="favorite_filter" value=true><i class="fa fa-star-o"></i></a>
+	            {{/if}}
+	            
+				{{#if Words}}
+		            {{#if $.Session.get 'checkbox'}}
+		            <a class="btn btn-primary session-set" key="checkbox" value=''><i class="fa fa-pencil"></i></a>
+		            {{else}}
+		            <a class="btn btn-default session-set" key="checkbox" value=true><i class="fa fa-pencil"></i></a>
+		            {{/if}}
 	            {{/if}}
 			</span>
-			{{/if}}
 		</h1>
         <!-- {{> testButton class="btn btn-danger"}} -->
         <!-- <a href="{{pathFor 'test'}}" class="btn btn-danger test-button">Test</a> -->
