@@ -2,9 +2,23 @@
 	<div class="col-md-12">
 	{{#if Words}}
 	{{else}}
-	<div class="alert alert-success">
-		<h2 style="margin-top:0;">Welcome to {{Config.name}}</h2>
-		<p>{{Config.name}} is a lightweight application to organise and store all of your <strong>foreign language vocabulary</strong>.</p>
+	<div class="box box-solid box-success" id="welcome-box">
+		<div class="box box-solid box-success">
+			<div class="box-header">
+				<h3 class="box-title">Getting started with {{Config.name}}</h3>
+				<div class="box-tools pull-right">
+				</div>
+			</div>
+			<div class="box-body">
+				<p>{{Config.name}} is a lightweight application to organise and store all of your <strong>foreign language vocabulary</strong>.</p>
+
+				<ul style="list-style:none;">
+					<li><i class="fa fa-plus fa-fw"></i> Add some words</li>
+					<li><i class="fa fa-plus fa-fw"></i> Test yourself</li>
+					<li><i class="fa fa-plus fa-fw"></i> Give some feedback <a href="http://twitter.com/BenPeterJones">@BenPeterJones</a>!</li>
+				</ul>
+			</div> 
+		</div>
 	</div>
 	{{/if}}
 	</div>
