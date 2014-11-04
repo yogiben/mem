@@ -35,7 +35,7 @@
 		transliteration: false
 		placeholder: 'Olá'
 		placeholderMultiple: 'Olá - hello'
-	German:
+	german:
 		name: 'German'
 		string: 'german'
 		code: 'de'
@@ -44,9 +44,9 @@
 		transliteration: false
 		placeholder: 'Hallo'
 		placeholderMultiple: 'Hallo - hello'
-	Japanese:
+	japanese:
 		name: 'Japanese'
-		string: 'Japanese'
+		string: 'japanese'
 		code: 'ja'
 		country: 'jp'
 		targetName: '日本の'
