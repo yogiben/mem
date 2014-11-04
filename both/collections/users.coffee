@@ -22,6 +22,7 @@ Schemas.User = new SimpleSchema(
 
   emails:
     type: [Object]
+    optional: true
 
   "emails.$.address":
     type: String
