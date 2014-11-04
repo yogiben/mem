@@ -5,7 +5,7 @@ Template.registerHelper 'Config', ->
 	Config
 
 Template.registerHelper 'niceName',->
-	if Session.get('User')
+	if Meteor.user()
 		Meteor.user().username
 
 Template.registerHelper 'Users', ->

@@ -12,7 +12,4 @@ Accounts.onCreateUser (options, user) ->
 
   if user.services.facebook
   	user.username = user.services.facebook.name.split(' ').join('.');
-
-
-
   user
