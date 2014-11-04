@@ -157,3 +157,6 @@ Template.registerHelper 'testSchema', ->
 Template.registerHelper 'lengthOfSession', (key)->
 	if Session.get(key)
 		Session.get(key).length
+
+Template.registerHelper 'setWithoutSpaces', ->
+	Template.currentData().name.split(' ').join('-')

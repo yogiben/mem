@@ -141,8 +141,10 @@ Router.map ->
       Session.set 'language', @params.language
       Session.set 'title', @params.set
       Session.set 'subtitle', Session.get('Words').length + ' words'
-      Session.set 'set', @params.set
-      Session.set 'addSets', [Sets.findOne({name: @params.set})._id]
+
+      set = @params.set.split('-').join(' ')
+      Session.set 'set', set
+      Session.set 'addSets', [Sets.findOne({name: set})._id]
       Session.set 'time', null
       @render()
 

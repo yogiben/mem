@@ -43,7 +43,7 @@
 						<ul class="treeview-menu" style="display: block;">
 						   {{#each getSets string}}
 	   						<li class="set">
-	   							<a href="{{pathFor 'set' username=username language=language set=name}}">
+	   							<a href="{{pathFor 'set' username=username language=language set=setWithoutSpaces}}">
 	   								<i class="fa fa-angle-double-right"></i> {{name}} <span class="pull-right">({{wordCount ../string _id}})</span>
 	   							</a>
 	   						</li>
