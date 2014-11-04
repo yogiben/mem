@@ -146,7 +146,7 @@ Tracker.autorun ->
 	if Meteor.userId() and not _.isNull(Router.current()) and Router.current().route.name == 'entrySignUp'
 		Router.go 'dashboard'
 
-	if Meteor.user() && typeof Meteor.user().learning != 'undefined' and Meteor.user().learning.length == 0 and Router.current().route.name != 'languages'
+	if Meteor.user() && typeof Meteor.user().learning != 'undefined' and Meteor.user().learning.length == 0 and Router and Router.curent() and Router.current().route.name != 'languages'
 		Router.go 'languages'
 
 	if Meteor.user()

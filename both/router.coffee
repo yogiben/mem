@@ -77,7 +77,7 @@ Router.map ->
     layoutTemplate: "dashboardLayout"
     action: ->
       Session.set 'title','Dashboard'
-      Session.set 'subtitle','Learn learn learn'
+      Session.set 'subtitle',''
       Session.set 'language',null
       Session.set 'set', null
 
