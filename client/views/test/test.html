@@ -34,8 +34,12 @@
 						</tbody>
 					</table> -->
 				<p>
+					{{#if language}}
+					<a id="test-home" href="{{pathFor 'language' username=username language=language}}">Go back</a>
+					{{else}}
 					<a id="test-home" href="{{pathFor 'dashboard' username=username}}">Go home</a>
-					<a id="test-results" href="{{pathFor 'dashboard' username=username}}">See results</a>
+					{{/if}}
+					<!-- <a id="test-results" href="{{pathFor 'dashboard' username=username}}">See results</a> -->
 				</p>
 			</section>			
 	    </div>

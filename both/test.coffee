@@ -2,10 +2,8 @@
 	correct: ->
 		if Session.get 'multiple'
 			Answers.new Session.get('CurrentTestItem')._id, 'multiple'
-			console.log 'correct multiple'
 		else
 			Answers.new Session.get('CurrentTestItem')._id, 'string'
-			console.log 'correct string'
 	incorrect: ->
 		Answers.new Session.get('CurrentTestItem')._id, 'incorrect'
 		Session.set 'correct', false
@@ -44,9 +42,14 @@
 		# 		i++
 		Utils.shuffle(Multiples)
 	isCorrect: (response,answer)->
-		response = response.toLowerCase()
-		answer = answer.toLowerCase()
-		response == answer
+		response = @parseTestString(response)
+		answer = @parseTestString(answer)
+
+		if answer.indexOf('/') > -1
+			answer = answer.split('/')
+			_.contains answer, response
+		else
+			response == answer
 
 	multiple: ->
 		Session.set 'multiple', true
@@ -63,3 +66,11 @@
 				tl = 'en'
 				text = CurrentTestItem.source
 			tts.speak text, tl
+
+	parseTestString: (str)->
+		str.toLowerCase()
+		str = str.replace(/\(.*?\)/g, '');
+		str = str.replace(' /','/')
+		str = str.replace('/ ','/')
+		str = str.replace(/^\s+|\s+$/g,'')
+		str
