@@ -1,10 +1,10 @@
 <template name="add">
 	<h4>
-		<a class="addType session-set {{#if $.Session.equals 'addType' 'quick'}}active{{/if}}" key="addType" value="quick">Quick Add</a>
+		<a id="add-quick" class="addType session-set {{#if $.Session.equals 'addType' 'quick'}}active{{/if}}" key="addType" value="quick">Quick Add</a>
 		 / 
-		<a class="addType session-set {{#if $.Session.equals 'addType' 'multiple'}}active{{/if}}" key="addType" value="multiple">Multiple</a>
+		<a id="add-multiple" class="addType session-set {{#if $.Session.equals 'addType' 'multiple'}}active{{/if}}" key="addType" value="multiple">Multiple</a>
 		/
-		<a class="addType session-set {{#if $.Session.equals 'addType' 'translator'}}active{{/if}}" key="addType" value="translator">Translator</a>
+		<a id="add-translator" class="addType session-set {{#if $.Session.equals 'addType' 'translator'}}active{{/if}}" key="addType" value="translator">Translator</a>
 	</h4>
 	{{#autoForm id="add" collection="Words" type="insert"}}
 	<p class="row">
@@ -84,7 +84,8 @@
 
 <template name="addSets">
 	<p>
-		<a data-toggle="modal" href='#afModal' class="btn btn-default btn-xs" collection="Sets" omitFields="createdAt,updatedAt,owner,public,starter,words,description" operation="insert" buttonContent="Create set" title="Add a new set"><i class="fa fa-plus"></i></a>
+
+		<a data-toggle="modal" href='#afModal' class="btn btn-default btn-xs" collection="Sets" fields="name,language" operation="insert" buttonContent="Create set" title="Add a new set"><i class="fa fa-plus"></i>{{#unless Sets}} Add set{{/unless}}</a>
 		{{#each Sets}}
 		<a value="{{_id}}" set="{{_id}}" class="addSet btn {{#if _.contains addSets _id}}btn-primary active{{else}}btn-default{{/if}} btn-xs">{{name}}</a>
 		{{/each}}

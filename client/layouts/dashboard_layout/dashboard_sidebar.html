@@ -15,38 +15,44 @@
 							<i class="fa fa-circle-o"></i> All <span class="pull-right">({{wordCount string false}})</span>
 						</a>
 					</li>
+					{{#if hasRecent}}
 					<li class="treeview active">
-							<a href="#">
-								<i class="fa fa-clock-o"></i> <span>Recent</span>
-								<i class="fa pull-right fa-angle-down"></i>
-							</a>
-							<ul class="treeview-menu" style="display: block;">
-		   						{{#each dayCombinations}}
-		   						{{#if App.wordsByDate this.[0] this.[1]}}
-			   						<li class="recent">
-			   							<a href="{{pathFor 'time' username=username language=language start=this.[0] end=this.[1]}}">
-			   								<i class="fa fa-angle-double-right"></i> {{this.[2]}} <span class="pull-right">({{wordsByDateLength this.[0] this.[1]}})</span>
-			   							</a>
-			   						</li>
-			   						{{/if}}
-		   						{{/each}}
-							</ul>
-						</li>
-						<li class="treeview active">
-							<a href="#">
-								<i class="fa fa-dot-circle-o"></i> <span>Sets</span>
-								<i class="fa pull-right fa-angle-down"></i>
-							</a>
-							<ul class="treeview-menu" style="display: block;">
-							   {{#each getSets string}}
-		   						<li class="set">
-		   							<a href="{{pathFor 'set' username=username language=language set=name}}">
-		   								<i class="fa fa-angle-double-right"></i> {{name}} <span class="pull-right">({{wordCount ../string _id}})</span>
+						<a href="#">
+							<i class="fa fa-clock-o"></i> <span>Recent</span>
+							<i class="fa pull-right fa-angle-down"></i>
+						</a>
+						<ul class="treeview-menu" style="display: block;">
+	   						{{#each dayCombinations}}
+	   						{{#if App.wordsByDate this.[0] this.[1]}}
+		   						<li class="recent">
+		   							<a href="{{pathFor 'time' username=username language=language start=this.[0] end=this.[1]}}">
+		   								<i class="fa fa-angle-double-right"></i> {{this.[2]}} <span class="pull-right">({{wordsByDateLength this.[0] this.[1]}})</span>
 		   							</a>
 		   						</li>
-		   						{{/each}}
-							</ul>
-						</li>
+		   						{{/if}}
+	   						{{/each}}
+						</ul>
+					</li>
+					{{/if}}
+					<li class="treeview active">
+						<a href="#">
+							<i class="fa fa-dot-circle-o"></i> <span>Sets</span>
+							<i class="fa pull-right fa-angle-down"></i>
+						</a>
+						<ul class="treeview-menu" style="display: block;">
+						   {{#each getSets string}}
+	   						<li class="set">
+	   							<a href="{{pathFor 'set' username=username language=language set=name}}">
+	   								<i class="fa fa-angle-double-right"></i> {{name}} <span class="pull-right">({{wordCount ../string _id}})</span>
+	   							</a>
+	   						</li>
+	   						{{/each}}
+	   						<li class="set">
+	   							<a href="{{pathFor 'sets' username=username language=language}}"><i class="fa fa-angle-double-right"></i> See all
+	   							</a>
+	   						</li>
+						</ul>
+					</li>
 						<!-- <li class="treeview active">
 							<a href="#">
 								<i class="fa fa-bullseye"></i> <span>Watching</span>

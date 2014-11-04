@@ -1,5 +1,5 @@
-<template name="languages">
-	<div class="template-languages">
+<template name="manage-sets">
+	<div class="template-sets">
 		<section class="content">
 			<div class="row">
 				{{#each toArray Languages}}

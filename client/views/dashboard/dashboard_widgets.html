@@ -3,8 +3,8 @@
 	{{#if Words}}
 	{{else}}
 	<div class="alert alert-success">
-		<h2>Welcome to {{Config.name}}</h2>
-		<p>Mem Mem is a lightweight application to organise and store all of your <strong>foreign language vocabulary</strong>.</p>
+		<h2 style="margin-top:0;">Welcome to {{Config.name}}</h2>
+		<p>{{Config.name}} is a lightweight application to organise and store all of your <strong>foreign language vocabulary</strong>.</p>
 	</div>
 	{{/if}}
 	</div>
@@ -12,9 +12,9 @@
 
 <template name="dashboardLanguages">
 	{{#each Learning}}
-		<div class="col-lg-3 col-md-4 col-sm-6">
+		<div class="col-lg-4 col-md-4 col-sm-6">
 			<a href="{{pathFor 'language' username=username language=string}}">
-				<div class="small-box bg-aqua">
+				<div class="small-box">
 					<div class="inner">
 	                    <h3>
 	                        {{wordCount string false}}
@@ -24,7 +24,7 @@
 	                    </p>
 	                </div>
 	                <div class="icon">
-		                <i class="fa fa-comment"></i>
+		            	{{> flag country=country}}
 	                </div>
 				</div>
 			</a>

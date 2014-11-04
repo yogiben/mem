@@ -106,6 +106,18 @@ Router.map ->
       Session.set 'time', null
       @render()
 
+  @route "sets",
+    path: "/:username/:language/sets"
+    template: 'manageSets'
+    layoutTemplate: "dashboardLayout"
+    action: ->
+      Session.set 'language', @params.language
+      Session.set 'title', Languages[@params.language].name
+      Session.set 'subtitle', 'Manage sets'
+      Session.set 'set', null
+      Session.set 'time', null
+      @render()
+
   @route "time",
     path: "/:username/:language/t/:start/:end"
     template: 'time'
