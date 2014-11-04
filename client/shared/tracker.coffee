@@ -61,33 +61,28 @@ Tracker.autorun ->
 	#Word Filter
 	Session.setDefault 'filter', {}
 
-	if Session.get('language') and Session.get('set')
-		filter =
-			$and : [
-				{language: Session.get 'language'}
-				{sets: { $all : [ Session.get('Set')._id ] }}
-			]
+	if Session.get('language')
+
+		$and = []
+		$and.push {language: Session.get 'language'}
+
+		if Session.get 'set'
+			$and.push {sets: { $all : [ Session.get('Set')._id ] }}
+
+		if Session.get 'time'
+			start = new Date(Session.get('time')[0])
+			end = new Date(Session.get('time')[1])
+			end.setHours(23,59,59,999)
+
+			$and.push {createdAt: {$gte: start, $lt: end}}
+
+		filter = {$and: $and}
 		Session.set 'filter', filter
-	else if Session.get('language') and Session.get('time')
-		start = new Date(Session.get('time')[0])
-		end = new Date(Session.get('time')[1])
-		end.setHours(23,59,59,999)
-		filter =
-			$and : [
-				{language: Session.get 'language'}
-				{createdAt: {$gte: start, $lt: end}}
-			]
-		Session.set 'filter', filter
-	else if Session.get 'language'
-		filter =
-			language: Session.get 'language'
-		Session.set 'filter', filter
-	# else if Session.get 'set'
-	# 	filter =
-	# 		set: Session.get 'set'
-	# 	Session.set 'filter', filter
 	else
 		Session.set 'filter', {}
+
+
+
 
 	#Sets and Test filter
 	if Session.get 'language'
