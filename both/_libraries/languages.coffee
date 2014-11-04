@@ -3,6 +3,7 @@
 		name: 'Spanish'
 		string: 'spanish'
 		code: 'es'
+		country: 'es'
 		targetName: 'Español'
 		transliteration: false
 		placeholder: 'Hola'
@@ -11,6 +12,7 @@
 		name: 'French'
 		string: 'french'
 		code: 'fr'
+		country: 'fr'
 		targetName: 'Français'
 		transliteration: false
 		placeholder: 'Bonjour'
@@ -19,6 +21,7 @@
 		name: 'Italian'
 		string: 'italian'
 		code: 'it'
+		country: 'it'
 		targetName: 'Italiano'
 		transliteration: false
 		placeholder: 'Buongiorno'
@@ -27,6 +30,7 @@
 		name: 'Portuguese'
 		string: 'portuguese'
 		code: 'pt'
+		country: 'pt'
 		targetName: 'Português'
 		transliteration: false
 		placeholder: 'Olá'
@@ -35,6 +39,7 @@
 		name: 'German'
 		string: 'german'
 		code: 'de'
+		country: 'de'
 		targetName: 'Deutsch'
 		transliteration: false
 		placeholder: 'Hallo'
@@ -43,6 +48,7 @@
 		name: 'Japanese'
 		string: 'Japanese'
 		code: 'ja'
+		country: 'jp'
 		targetName: '日本の'
 		transliteration: true
 		placeholder: 'こんにちは'
@@ -52,6 +58,7 @@
 		name: 'Chinese'
 		string: 'chinese'
 		code: 'zh-CN'
+		country: 'cn'
 		targetName: '中文'
 		transliteration: true
 		placeholder: '你好'
