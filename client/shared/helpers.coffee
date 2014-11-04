@@ -6,10 +6,7 @@ Template.registerHelper 'Config', ->
 
 Template.registerHelper 'niceName',->
 	if Session.get('User')
-		if Session.get('User').profile.firstName
-			Session.get('User').profile.firstName
-		else
-			Session.get('User').emails[0].address
+		Meteor.user().username
 
 Template.registerHelper 'Users', ->
 	Meteor.users
