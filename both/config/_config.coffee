@@ -1,6 +1,6 @@
 Config =
 	name: 'Vocab.li'
-	title: 'Manage your vocabulary'
+	title: 'Manage your vocab'
 	subtitle: 'Organize and record your foreign language vocab'
 	logo: ->
 		'<b>' + @name + '</b>'
